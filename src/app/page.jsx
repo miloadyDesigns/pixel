@@ -14,7 +14,13 @@ import TimelineSlider from '@/app/ui/Slider/TimelineSlider';
 import Spacing from '@/app/ui/Spacing';
 import VideoModal from '@/app/ui/VideoModal';
 import Card from './ui/Card';
-
+import { useInView } from 'react-intersection-observer';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/all';
+import { useGSAP } from '@gsap/react'
+import Marquee from 'react-fast-marquee';
+import Image from 'next/image';
+gsap.registerPlugin(useGSAP, ScrollTrigger);
 // Hero Social Links
 const heroSocialLinks = [
   {
@@ -30,11 +36,11 @@ const heroSocialLinks = [
 const funfaceData = [
   {
     title: 'Global Happy Clients',
-    factNumber: '40K',
+    factNumber: '40',
   },
   {
     title: 'Project Completed',
-    factNumber: '50K',
+    factNumber: '50',
   },
   {
     title: 'Team Members',
@@ -74,6 +80,48 @@ const portfolioData = [
 ];
 
 export default function Home() {
+  useGSAP(() => {
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: '.services-section-1',
+        start: 'top 100%', // Starts the animation when the top of the section is 80% from the top of the viewport
+        end: 'bottom 90%', // Ends the animation when the bottom of the section is 20% from the top of the viewport
+        scrub: 4, // Smoothly syncs the animation to the scrollbar
+
+      },
+    });
+
+    tl.from('.services-heading', { x: -800, opacity: 0, duration: 0.5 });
+    tl.from('.card-1', { x: -400, opacity: 0, duration: 0.5 });
+    tl.from('.card-2', { x: -400, opacity: 0, duration: 0.5 });
+    tl.from('.card-3', { x: 400, opacity: 0, duration: 0.5 });
+    tl.from('.card-4', { x: 400, opacity: 0, duration: 0.5 });
+
+    gsap.from('.marquee', {
+      y: 160,
+      opacity: 0.1,
+      duration: 1.7,
+      scrollTrigger: {
+        trigger: '.marquee',
+        start: 'top 80%', // Adjust as needed
+        end: 'top 50%',   // Adjust as needed
+        scrub: 1,
+      },
+    })
+    gsap.from('.portfolio', {
+      y: 120,
+      opacity: 0.1,
+      duration: 1.7,
+      scrollTrigger: {
+        trigger: '.portfolio',
+        start: 'top 80%', // Adjust as needed
+        end: 'bottom bottom',   // Adjust as needed
+        scrub: 1,
+      },
+    })
+
+  });
+
   return (
     <>
       {/* Start Hero Section */}
@@ -86,29 +134,29 @@ export default function Home() {
         socialLinksHeading="Follow Us"
         heroSocialLinks={heroSocialLinks}
         bgImageUrl="/images/hero_bg.jpeg"
-        videoUrl={"/video/redBackVideo.mp4"}
+        videoUrl={"/video/finalRed.mp4"}
       />
       {/* End Hero Section */}
 
       {/* Start FunFact Section */}
-      {/* <div className="container">
+      <div className="container" >
         <FunFact
           variant="cs-type1"
           title="Our fun fact"
           subtitle="Sed ut perspiciatis unde omnis iste natus error voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis."
           data={funfaceData}
         />
-      </div> */}
+      </div>
       {/* End FunFact Section */}
 
       {/* Start Service Section */}
-      {/* <Spacing lg="150" md="80" />
-      <Div id="service">
+      <Spacing lg="120" md="80" />
+      <div id="service" className="services-section-1" >
         <Div className="container">
           <Div className="row">
-            <Div className="col-xl-4">
+            <Div className="col-xl-4 services-heading">
               <SectionHeading
-                title="Services we can help you with"
+                title="App Services we can help you with"
                 subtitle="What Can We Do"
                 btnText="See All Services"
                 btnLink="/service"
@@ -118,7 +166,7 @@ export default function Home() {
             <Div className="col-xl-8">
               <Div className="row">
                 <Div className="col-lg-3 col-sm-6 cs-hidden_mobile"></Div>
-                <Div className="col-lg-3 col-sm-6">
+                <Div className="col-lg-3 col-sm-6 card-1">
                   <Card
                     title="UI/UX design"
                     link="/service/service-details"
@@ -128,18 +176,18 @@ export default function Home() {
                   <Spacing lg="0" md="30" />
                 </Div>
                 <Div className="col-lg-3 col-sm-6 cs-hidden_mobile"></Div>
-                <Div className="col-lg-3 col-sm-6">
+                <Div className="col-lg-3 col-sm-6 card-2">
                   <Card
-                    title="React.js Development"
+                    title="App Maintenance"
                     link="/service/service-details"
                     src="/images/service_2.jpeg"
                     alt="Service"
                   />
                   <Spacing lg="0" md="30" />
                 </Div>
-                <Div className="col-lg-3 col-sm-6">
+                <Div className="col-lg-3 col-sm-6 card-3">
                   <Card
-                    title="Digital Marketing"
+                    title="Hybird App Development (IOS/ANDROID)"
                     link="/service/service-details"
                     src="/images/service_3.jpeg"
                     alt="Service"
@@ -147,9 +195,9 @@ export default function Home() {
                   <Spacing lg="0" md="30" />
                 </Div>
                 <Div className="col-lg-3 col-sm-6 cs-hidden_mobile"></Div>
-                <Div className="col-lg-3 col-sm-6">
+                <Div className="col-lg-3 col-sm-6 card-4">
                   <Card
-                    title="Technology"
+                    title="Backend Development"
                     link="/service/service-details"
                     src="/images/service_4.jpeg"
                     alt="Service"
@@ -157,16 +205,40 @@ export default function Home() {
                   <Spacing lg="0" md="30" />
                 </Div>
                 <Div className="col-lg-3 col-sm-6 cs-hidden_mobile"></Div>
+
+                <Div className="col-lg-3 col-sm-6 cs-hidden_mobile"></Div>
               </Div>
             </Div>
           </Div>
         </Div>
-      </Div> */}
+      </div>
       {/* End Service Section */}
+      <Spacing lg="150" md="50" />
+      <div className='marquee xs:flex-col lg:flex-row h-[250px] rounded-xl relative overflow-y-hidden'>
+        <div className='absolute inset-0' style={{
+          background: 'linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(170,170,170,0.5) 50%, rgba(255,255,255,1) 100%)',
+          opacity: 0.6
+        }}></div>
+        <div className='first xs:w-[100%] lg:w-[50%] p-4 relative z-10'>
+          <h3 className="xs:text-[24px] lg:text-4xl text-white">Partners we are working with currently</h3>
+        </div>
+        <div className='second xs:w-[100%] relative overflow-hidden'>
+          <Marquee className='overflow-hidden'>
+            <Image src="/images/client-logos/PNG-1.png" width={140} height={100} alt="Partner Logo" style={{ marginLeft: "50px" }} />
+            <Image src="/images/client-logos/PNG-2.png" width={140} height={100} alt="Partner Logo" style={{ marginLeft: "50px" }} />
+            <Image src="/images/client-logos/PNG-3.png" width={140} height={100} alt="Partner Logo" style={{ marginLeft: "50px" }} />
+            <Image src="/images/client-logos/PNG-4.png" width={140} height={100} alt="Partner Logo" style={{ marginLeft: "50px" }} />
+            <Image src="/images/client-logos/PNG-5.png" width={140} height={100} alt="Partner Logo" style={{ marginLeft: "50px" }} />
+          </Marquee>
+        </div>
+      </div>
+
+
+      {/* <Spacing lg="150" md="50" /> */}
 
       {/* Start Portfolio Section */}
-      {/* <Spacing lg="150" md="50" />
-      <Div>
+      <Spacing lg="150" md="50" />
+      <Div className="portfolio overflow-hidden">
         <Div className="container">
           <SectionHeading
             title="Portfolio to explore"
@@ -176,7 +248,8 @@ export default function Home() {
           <Spacing lg="90" md="45" />
         </Div>
         <PortfolioSlider data={portfolioData} />
-      </Div> */}
+      </Div>
+      <Spacing lg="150" md="50" />
       {/* End Portfolio Section */}
 
       {/* Start Awards Section */}

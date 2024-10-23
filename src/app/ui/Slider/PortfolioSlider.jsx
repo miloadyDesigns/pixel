@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import Portfolio from '../Portfolio';
 import Div from '../Div';
 import Slider from 'react-slick';
 
 export default function PortfolioSlider({ data }) {
+  const sliderRef = useRef(null);
+
   /** Slider Settings **/
   const settings = {
     className: 'center',
@@ -24,8 +26,18 @@ export default function PortfolioSlider({ data }) {
     ],
   };
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (sliderRef.current) {
+        sliderRef.current.slickNext();
+      }
+    }, 2000); // Change slide every 2 seconds
+
+    return () => clearInterval(interval); // Clear interval on component unmount
+  }, []);
+
   return (
-    <Slider {...settings} className="cs-slider cs-style3 cs-gap-24">
+    <Slider {...settings} ref={sliderRef} className="cs-slider cs-style3 cs-gap-24">
       {data.map((item, index) => (
         <Div key={index}>
           <Portfolio

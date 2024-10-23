@@ -8,7 +8,7 @@ import 'swiper/css/pagination';
 import './scss/index.scss';
 import { Poppins, Open_Sans } from 'next/font/google';
 import Head from 'next/head';
-
+import "./globals.css"
 const poppins = Poppins({
   subsets: ['latin'],
   weight: ['400', '600', '700'],

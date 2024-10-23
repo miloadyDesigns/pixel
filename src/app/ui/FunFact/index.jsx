@@ -1,9 +1,40 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Div from '../Div';
+import CountUp from 'react-countup';
+import { useInView } from 'react-intersection-observer';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/all';
+import { useGSAP } from '@gsap/react';
+gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 export default function FunFact({ variant, title, subtitle, data }) {
+  const { ref, inView } = useInView({ threshold: 0.25 });
+
+  useGSAP(() => {
+    gsap.from('.funfact_1', {
+      y: 120,
+      opacity: 0.1,
+      duration: 1.7,
+      scrollTrigger: {
+        trigger: '.cs-funfact_wrap',
+        start: 'top 80%', // Adjust as needed
+        end: 'top 50%',   // Adjust as needed
+        scrub: 1,
+      },
+    });
+  });
+  // useEffect(() => {
+  //   if (inView) {
+  //     gsap.from('.funfact_1', { y: 120, opacity: 0.1, duration: 0.7 });
+  //   }
+  // }, [inView]);
+
   return (
-    <Div className={variant ? `cs-funfact_wrap ${variant}` : 'cs-funfact_wrap'}>
+    <div
+      ref={ref}
+      className={variant ? `cs-funfact_wrap ${variant} funfact_1` : 'cs-funfact_wrap'}
+
+    >
       <Div
         className="cs-funfact_shape"
         style={{ backgroundImage: 'url(/images/funfact_shape_bg.svg)' }}
@@ -20,16 +51,22 @@ export default function FunFact({ variant, title, subtitle, data }) {
             <Div className="cs-funfact cs-style1" key={index}>
               <Div className="cs-funfact_number cs-primary_font cs-semi_bold cs-primary_color">
                 <span />
-                {item.factNumber}
+                {inView && (
+                  <CountUp
+                    start={0}
+                    end={item.factNumber}
+                    duration={3}
+                    suffix="K"
+                  />
+                )}
               </Div>
               <Div className="cs-funfact_text">
                 <span className="cs-accent_color">+</span>
-                <p>{item.title}</p>
               </Div>
             </Div>
           ))}
         </Div>
       </Div>
-    </Div>
+    </div>
   );
 }

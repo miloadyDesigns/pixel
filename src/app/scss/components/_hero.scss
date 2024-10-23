@@ -290,7 +290,7 @@
       left: 47%;
     }
 
-  
+
   }
 
   .cs-circle_1 {
@@ -357,6 +357,15 @@
       }
     }
   }
+}
+
+.marquee {
+  display: flex;
+  width: 80%;
+  justify-content: space-around;
+  align-items: center;
+  margin: auto;
+  
 }
 
 .cs-hero.cs-style4,
