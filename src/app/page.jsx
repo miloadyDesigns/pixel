@@ -228,6 +228,8 @@ export default function Home() {
       </div>
       {/* End Service Section */}
       <Spacing lg="150" md="50" />
+      <MovingText text="WE BUILD DYNAMIC, SECURE, AND EFFICIENT SOFTWARE APPLICATIONS SEAMLESSLY." />
+      <Spacing lg="150" md="50" />
       <div className='marquee xs:flex-col lg:flex-row h-[250px] rounded-xl relative overflow-y-hidden'>
         <div className='absolute inset-0' style={{
           background: 'linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(170,170,170,0.5) 50%, rgba(255,255,255,1) 100%)',

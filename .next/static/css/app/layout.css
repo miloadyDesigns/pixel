@@ -20445,6 +20445,18 @@ video {
 .ml-\[-92px\] {
   margin-left: -92px;
 }
+.ml-2 {
+  margin-left: 0.5rem;
+}
+.ml-24 {
+  margin-left: 6rem;
+}
+.ml-4 {
+  margin-left: 1rem;
+}
+.ml-6 {
+  margin-left: 1.5rem;
+}
 .block {
   display: block;
 }

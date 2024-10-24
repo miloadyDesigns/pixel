@@ -7,11 +7,16 @@ import ContactInfoWidget from '../Widget/ContactInfoWidget';
 import Newsletter from '../Widget/Newsletter';
 import SocialWidget from '../Widget/SocialWidget';
 import Image from 'next/image';
-
+import { Icon } from '@iconify/react';
 export default function Header({ variant }) {
   const [isSticky, setIsSticky] = useState(false);
   const [sideHeaderToggle, setSideHeaderToggle] = useState(false);
   const [mobileToggle, setMobileToggle] = useState(false);
+  const phoneNumber = "1234567890";
+
+  const handleCallClick = () => {
+    window.location.href = `tel:${phoneNumber}`;
+  };
   useEffect(() => {
     window.addEventListener('scroll', () => {
       if (window.scrollY > 0) {
@@ -144,6 +149,7 @@ export default function Header({ variant }) {
                       </Link>
                     </li>
                   </ul>
+
                   <span
                     className={
                       mobileToggle
@@ -154,8 +160,10 @@ export default function Header({ variant }) {
                   >
                     <span></span>
                   </span>
+
                 </Div>
               </Div>
+
               <Div className="cs-main_header_right">
                 <Div className="cs-toolbox">
                   <span
@@ -170,7 +178,16 @@ export default function Header({ variant }) {
                     </span>
                   </span>
                 </Div>
+                <Div className="cs-toolbox ml-6">
+                  <span
+                    className="cs-icon_btn"
+                    onClick={() => handleCallClick()}
+                  >
+                    <Icon icon="mdi:phone" width={24} height={24} color="white" />
+                  </span>
+                </Div>
               </Div>
+
             </Div>
           </Div>
         </Div>
