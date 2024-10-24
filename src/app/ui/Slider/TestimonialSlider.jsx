@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Slider from 'react-slick';
 import { Icon } from '@iconify/react';
 import Testimonial from '../Testimonial';
@@ -44,32 +44,44 @@ const testimonialData = [
 export default function TestimonialSlider() {
   const [nav1, setNav1] = useState();
   const [nav2, setNav2] = useState();
-  
+  const [currentSlide, setCurrentSlide] = useState(0);
+
   const SlickArrowLeft = ({ currentSlide, slideCount, ...props }) => (
     <div
       {...props}
-      className={
-        'slick-prev slick-arrow' + (currentSlide === 0 ? ' slick-disabled' : '')
-      }
+      className={'slick-prev slick-arrow' + (currentSlide === 0 ? ' slick-disabled' : '')}
       aria-hidden="true"
       aria-disabled={currentSlide === 0 ? true : false}
     >
       <Icon icon="bi:arrow-left" />
     </div>
   );
+
   const SlickArrowRight = ({ currentSlide, slideCount, ...props }) => (
     <div
       {...props}
-      className={
-        'slick-next slick-arrow' +
-        (currentSlide === slideCount - 1 ? ' slick-disabled' : '')
-      }
+      className={'slick-next slick-arrow' + (currentSlide === slideCount - 1 ? ' slick-disabled' : '')}
       aria-hidden="true"
       aria-disabled={currentSlide === slideCount - 1 ? true : false}
     >
       <Icon icon="bi:arrow-right" />
     </div>
   );
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % testimonialData.length);
+    }, 4000); // Change slide every 4 seconds
+
+    return () => clearInterval(interval); // Cleanup on unmount
+  }, []);
+
+  useEffect(() => {
+    if (nav1) {
+      nav1.slickGoTo(currentSlide); // Move to the current slide
+    }
+  }, [currentSlide, nav1]);
+
   return (
     <>
       <Div className="cs-gradient_bg_1 cs-shape_wrap_3 cs-parallax">
@@ -82,7 +94,7 @@ export default function TestimonialSlider() {
             <Div className="cs-testimonial_slider_left">
               <Slider
                 asNavFor={nav1}
-                ref={slider2 => setNav2(slider2)}
+                ref={(slider2) => setNav2(slider2)}
                 slidesToShow={3}
                 swipeToSlide={true}
                 focusOnSelect={true}
@@ -104,7 +116,7 @@ export default function TestimonialSlider() {
             <Div className="cs-testimonial_slider_right">
               <Slider
                 asNavFor={nav2}
-                ref={slider1 => setNav1(slider1)}
+                ref={(slider1) => setNav1(slider1)}
                 prevArrow={<SlickArrowLeft />}
                 nextArrow={<SlickArrowRight />}
                 className="cs-arrow_style1"

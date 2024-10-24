@@ -6,7 +6,18 @@ const Footer = () => {
         <div className='w-[80vw] m-auto h-96 flex xs:flex-col lg:flex-row justify-around items-center'>
             <div className='xs:w-full lg:w-[25%]'>
                 <div className='pl-2 pb-4'>
-                    <Image src="/images/logo.svg" className='w-20 h-10 ' width={20} height={20} />
+                    <Image
+                        src="/images/pixelLogo.png"
+                        alt="Logo"
+                        width={224} // Adjusted width
+                        height={280} // Adjusted height
+                        style={{
+                            maxWidth: '80%', // Adjust this value as needed
+                            height: 'auto', // Maintain aspect ratio
+                            transform: 'scale(1.0)', // Scale down the logo
+                            transition: 'transform 0.3s ease' // Optional: smooth scaling on hover
+                        }}
+                    />
                 </div>
                 <div className='p-2 '>
                     <p>Welcome to arino sed ut perspiciae omunde omnis iste natus error sitort voluptatem accusantium.</p>

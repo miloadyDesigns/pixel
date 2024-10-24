@@ -18561,12 +18561,14 @@ label {
   }
 }
 .cs-moving_text_wrap {
-  font-family: helvetica;
+  /* Ensure fallback fonts */
+  font-weight: bold;
+  /* Set bold text */
   overflow: hidden;
   font-size: 120px;
   line-height: 1.2em;
   color: transparent;
-  -webkit-text-stroke: 2px var(--accent);
+  -webkit-text-stroke: 3px var(--accent);
 }
 
 .cs-moving_text_in {
@@ -18593,6 +18595,7 @@ label {
 .cs-moving_text_wrap.cs-type1 .cs-moving_text {
   padding: 5px 0;
   animation: slide-left 40s linear infinite;
+  font-weight: 800;
 }
 .cs-moving_text_wrap.cs-type1 .cs-moving_text a:hover {
   color: transparent;
@@ -20520,6 +20523,15 @@ video {
 .h-\[400px\] {
   height: 400px;
 }
+.h-\[350px\] {
+  height: 350px;
+}
+.h-\[25px\] {
+  height: 25px;
+}
+.h-\[450px\] {
+  height: 450px;
+}
 .w-\[\] {
   width: ;
 }
@@ -20570,6 +20582,18 @@ video {
 }
 .w-\[300px\] {
   width: 300px;
+}
+.w-\[250px\] {
+  width: 250px;
+}
+.w-\[200\] {
+  width: 200;
+}
+.w-\[100vw\] {
+  width: 100vw;
+}
+.w-\[20vw\] {
+  width: 20vw;
 }
 .transform {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
@@ -20756,6 +20780,9 @@ video {
 .font-semibold {
   font-weight: 600;
 }
+.font-bold {
+  font-weight: 700;
+}
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
@@ -20789,6 +20816,13 @@ video {
 }
 .transition-all {
   transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+.transition {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }

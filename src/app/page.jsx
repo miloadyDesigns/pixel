@@ -149,7 +149,7 @@ export default function Home() {
         socialLinksHeading="Follow Us"
         heroSocialLinks={heroSocialLinks}
         bgImageUrl="/images/hero_bg.jpeg"
-        videoUrl={"/video/finalRed.mp4"}
+        videoUrl={"/video/redVideoBack.mp4"}
       />
       {/* End Hero Section */}
 

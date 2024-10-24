@@ -11,6 +11,7 @@ import SocialWidget from '../Widget/SocialWidget';
 import Image from 'next/image';
 import { Icon } from '@iconify/react';
 import { useSideHeader } from '@/utils/SideHeaderToggle';
+import Spacing from '../Spacing';
 
 export default function Header({ variant }) {
   const { isOpen, closeSideHeader, openSideHeader } = useSideHeader();
@@ -50,17 +51,27 @@ export default function Header({ variant }) {
         <Div className="cs-main_header">
           <Div className="container">
             <Div className="cs-main_header_in">
-              <Div className="cs-main_header_left ">
-                <Link className="cs-site_branding" href="/">
-                  <Image
-                    src="/images/finalMainLogo.png"
-                    className='w-[200px] h-[300px]'
-                    alt="Logo"
-                    width={200}
-                    height={300}
-                  />
-                </Link>
+              <Div className="cs-main_header_in">
+                <Div className="cs-main_header_left">
+                  <Link className="cs-site_branding" href="/">
+                    <Image
+                      src="/images/pixelLogo.png"
+                      alt="Logo"
+                      width={214} // Adjusted width
+                      height={280} // Adjusted height
+                      style={{
+                        maxWidth: '80%', // Adjust this value as needed
+                        height: 'auto', // Maintain aspect ratio
+                        transform: 'scale(1.4)', // Scale down the logo
+                        transition: 'transform 0.3s ease', // Optional: smooth scaling on hover
+                        marginLeft:40
+                      }}
+                    />
+                  </Link>
+                </Div>
+
               </Div>
+
               <Div className="cs-main_header_center">
                 <Div className="cs-nav cs-primary_font cs-medium">
                   <ul className="cs-nav_list" style={{ display: `${mobileToggle ? 'block' : 'none'}` }}>
@@ -137,15 +148,54 @@ export default function Header({ variant }) {
         <Div className="cs-side_header_in">
           <Div className="cs-side_header_shape" />
           <Link className="cs-site_branding" href="/">
-            {/* <img src="/images/footer_logo.svg" alt="Logo" /> */}
+            <img src="/images/finalMainLogo.png" alt="Logo" className='w-[200px] h-[250px]' />
           </Link>
-          <Div className="cs-side_header_box">
+          <Div className="cs-side_header_box pb-3">
             <h2 className="cs-side_header_heading">
               Do you have a project in your <br /> mind? Keep connect us.
             </h2>
           </Div>
           <Div className="cs-side_header_box">
-            <ContactInfoWidget title="Contact Us" withIcon />
+            <h2 className="cs-side_header_heading pb-4 font-semibold">
+              Send a Message
+            </h2>
+            <div className=''>
+              <div className=''>
+                <form action="#" className="row">
+                  <Div className="col-sm-12 pb-2">
+                    <label className="cs-primary_color">Full Name*</label>
+                    <input type="text" className="cs-form_field" placeholder='John Doe' />
+                  </Div>
+
+                  <Div className="col-sm-12 pb-2">
+                    <label className="cs-primary_color">Email*</label>
+                    <input type="text" className="cs-form_field" placeholder='john@gmail.com' />
+
+                  </Div>
+                  <Div className="col-sm-12 pb-2">
+                    <label className="cs-primary_color">Project Type*</label>
+                    <input type="text" className="cs-form_field" placeholder='Development' />
+
+                  </Div>
+                  <Div className="col-sm-12">
+                    <label className="cs-primary_color">Message*</label>
+                    <textarea
+                      cols="20"
+                      rows="5"
+                      className="cs-form_field"
+                      placeholder='Start a conversation'
+                    ></textarea>
+                    <Spacing lg="25" md="25" />
+                  </Div>
+                  <Div className="col-sm-12">
+                    <button className="cs-btn cs-style1">
+                      <span>Send Message</span>
+                      <Icon icon="bi:arrow-right" />
+                    </button>
+                  </Div>
+                </form>
+              </div>
+            </div>
           </Div>
           <Div className="cs-side_header_box">
             <Newsletter
