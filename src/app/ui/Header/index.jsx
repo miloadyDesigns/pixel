@@ -56,7 +56,7 @@ export default function Header({ variant }) {
                     src="/images/finalMainLogo.png"
                     className='w-[200px] h-[300px]'
                     alt="Logo"
-                    width={300}
+                    width={200}
                     height={300}
                   />
                 </Link>

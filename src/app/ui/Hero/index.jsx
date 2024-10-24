@@ -71,6 +71,7 @@ export default function Hero({
         <source src={videoUrl} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
+      <div className='absolute bg-black w-full h-full top-0 opacity-20'></div>
       <Div className="cs-shape_1" />
       <Div className="cs-shape_1" />
       <Div className="cs-shape_1" />
