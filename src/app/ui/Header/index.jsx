@@ -96,7 +96,7 @@ export default function Header({ variant }) {
                       </Link>
                     </li>
                     <li className='text-lg font-semibold'>
-                      <Link href="/" onClick={() => setMobileToggle(false)}>
+                      <Link href="/contact" onClick={() => setMobileToggle(false)}>
                         Contact
                       </Link>
                     </li>
@@ -158,7 +158,7 @@ export default function Header({ variant }) {
                 height: 'auto', // Maintain aspect ratio
                 transform: 'scale(1.2)', // Scale down the logo
                 transition: 'transform 0.3s ease', // Optional: smooth scaling on hover
-                marginLeft:20
+                marginLeft: 20
               }}
             />
           </Link>

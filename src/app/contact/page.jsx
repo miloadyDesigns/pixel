@@ -11,7 +11,7 @@ export default function ContactPage() {
     <>
       <PageHeading
         title="Contact Us"
-        bgSrc="/images/contact_hero_bg.jpeg"
+        videoSrc="/video/innerPagesVideo.mp4"
         pageLinkText="Contact"
       />
       <Spacing lg="150" md="80" />
