@@ -57,8 +57,8 @@ export default function Header({ variant }) {
                     <Image
                       src="/images/pixelLogo.png"
                       alt="Logo"
-                      width={180} // Adjusted width
-                      height={280} // Adjusted height
+                      width={140} // Adjusted width
+                      height={300} // Adjusted height
                       style={{
                         maxWidth: '80%', // Adjust this value as needed
                         height: 'auto', // Maintain aspect ratio
@@ -81,7 +81,7 @@ export default function Header({ variant }) {
                       </Link>
                     </li>
                     <li className='text-lg font-semibold'>
-                      <Link href="/" onClick={() => setMobileToggle(false)}>
+                      <Link href="/about" onClick={() => setMobileToggle(false)}>
                         About
                       </Link>
                     </li>

@@ -39,9 +39,9 @@ export default function AboutPage() {
     <>
       {/* Start Page Heading Section */}
       <PageHeading
-        title="About Us"
-        bgSrc="/images/about_hero_bg.jpeg"
-        pageLinkText="About Us"
+        title="About"
+        videoSrc="/video/blackWhiteVideo.mp4"
+        pageLinkText="about"
       />
       {/* End Page Heading Section */}
 
@@ -107,7 +107,7 @@ export default function AboutPage() {
       {/* End Fun Fact Section */}
 
       {/* Start Why Choose Section */}
-      <Spacing lg="100" md="80" />
+      {/* <Spacing lg="100" md="80" />
       <Div className="container">
         <Div className="row">
           <Div className="col-xl-5 col-lg-6">
@@ -148,7 +148,7 @@ export default function AboutPage() {
             </SectionHeading>
           </Div>
         </Div>
-      </Div>
+      </Div> */}
       {/* End Why Choose Section */}
 
       {/* Start Team Section */}
@@ -165,7 +165,7 @@ export default function AboutPage() {
       {/* End Team Section */}
 
       {/* Start CTA Section */}
-      <Spacing lg="150" md="80" />
+      {/* <Spacing lg="150" md="80" />
       <Div className="container">
         <Cta
           title="Let’s disscuse make <br />something <i>cool</i> together"
@@ -173,7 +173,7 @@ export default function AboutPage() {
           btnLink="/contact"
           bgSrc="/images/cta_bg.jpeg"
         />
-      </Div>
+      </Div> */}
       {/* End CTA Section */}
     </>
   );

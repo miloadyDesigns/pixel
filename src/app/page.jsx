@@ -20,6 +20,7 @@ import { ScrollTrigger } from 'gsap/all';
 import { useGSAP } from '@gsap/react'
 import Marquee from 'react-fast-marquee';
 import Image from 'next/image';
+import { useEffect, useRef, useState } from 'react';
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 // Hero Social Links
 const heroSocialLinks = [
@@ -80,6 +81,29 @@ const portfolioData = [
 ];
 
 export default function Home() {
+  // const lineRef = useRef()
+  // useEffect(() => {
+  //   const line = lineRef.current;
+  //   if (line) {
+  //     const length = line.getTotalLength();
+  //     // Set up the dash properties
+  //     gsap.set(line, {
+  //       strokeDasharray: length,
+  //       strokeDashoffset: length,
+  //     });
+
+  //     gsap.to(line, {
+  //       strokeDashoffset: 0,
+  //       duration: 2, // Adjust the duration as needed
+  //       scrollTrigger: {
+  //         trigger: ".line",
+  //         start: "top 40%", // Adjust as needed
+  //         end: "bottom 50%", // Adjust as needed
+  //         scrub: 1,
+  //       },
+  //     });
+  //   }
+  // }, []);
 
   useGSAP(() => {
     const tl = gsap.timeline({
@@ -159,11 +183,13 @@ export default function Home() {
         start: 'top 90%',
         end: 'top 40%',
         scrub: 2,
-      
+
         onEnter: () => gsap.to('.cta', { autoAlpha: 1 }),
         onLeaveBack: () => gsap.to('.cta', { autoAlpha: 0 }),
       }
     });
+
+    // gsap.fromTo()
   });
 
   return (
@@ -192,7 +218,12 @@ export default function Home() {
         />
       </div>
       {/* End FunFact Section */}
+      {/* <div className='absolute line border'>
+        <svg width="1670" height="802" viewBox="0 0 1670 802" fill="none" xmlns="http://www.w3.org/2000/svg" re>
+          <path d="M2.5 233.5C8.1 233.5 410 85 608 211.5C806 338 907.703 399.394 873 570C835.168 755.991 637.5 808.5 430.5 771C223.5 733.5 155 642.5 180 495.5C205 348.5 257.372 265.271 366.5 165C605.611 -54.703 936.076 -26.9357 1198 165C1273.3 220.178 1355.5 270 1364 337C1372.5 404 1407.5 674.5 1182 771C956.5 867.5 877 603.5 887.5 488.5C896.857 386.016 1049.17 313.313 1082.21 298.702C1086.41 296.846 1090.12 294.254 1093.85 291.571C1104.76 283.709 1134.16 267.314 1198 258.5C1284 246.627 1348 221.5 1313 363C1278 504.5 1528 415.5 1618.5 481C1709 546.5 1621.5 495.5 1621.5 495.5" stroke="#FF0000" stroke-opacity="0.97" stroke-width="19" />
+        </svg>
 
+      </div> */}
       {/* Start Service Section */}
       <Spacing lg="120" md="80" />
       <div id="service" className="services-section-1" >

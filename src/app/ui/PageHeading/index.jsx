@@ -21,9 +21,7 @@ export default function PageHeading({ title, videoSrc, pageLinkText }) {
           left: 0,
           zIndex: 0,
         }}
-        // Debugging attributes
-  
-        onError={(e) => console.error("Video load error:", e)}
+      
       >
         <source src={videoSrc} type="video/mp4" />
         Your browser does not support the video tag.
