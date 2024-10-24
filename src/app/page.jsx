@@ -159,7 +159,7 @@ export default function Home() {
         start: 'top 90%',
         end: 'top 40%',
         scrub: 2,
-        markers: true,
+      
         onEnter: () => gsap.to('.cta', { autoAlpha: 1 }),
         onLeaveBack: () => gsap.to('.cta', { autoAlpha: 0 }),
       }
