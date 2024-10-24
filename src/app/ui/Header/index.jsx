@@ -64,7 +64,7 @@ export default function Header({ variant }) {
                         height: 'auto', // Maintain aspect ratio
                         transform: 'scale(1.4)', // Scale down the logo
                         transition: 'transform 0.3s ease', // Optional: smooth scaling on hover
-                        marginLeft:40
+                        marginLeft: 40
                       }}
                     />
                   </Link>
@@ -148,7 +148,19 @@ export default function Header({ variant }) {
         <Div className="cs-side_header_in">
           <Div className="cs-side_header_shape" />
           <Link className="cs-site_branding" href="/">
-            <img src="/images/finalMainLogo.png" alt="Logo" className='w-[200px] h-[250px]' />
+            <Image
+              src="/images/pixelLogo.png"
+              alt="Logo"
+              width={214} // Adjusted width
+              height={280} // Adjusted height
+              style={{
+                maxWidth: '80%', // Adjust this value as needed
+                height: 'auto', // Maintain aspect ratio
+                transform: 'scale(1.2)', // Scale down the logo
+                transition: 'transform 0.3s ease', // Optional: smooth scaling on hover
+                marginLeft:20
+              }}
+            />
           </Link>
           <Div className="cs-side_header_box pb-3">
             <h2 className="cs-side_header_heading">
