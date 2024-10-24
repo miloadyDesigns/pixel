@@ -127,12 +127,11 @@ export default function Home() {
       delay: 1,
       scrollTrigger: {
         trigger: '.testimonialSlider',
-        start: 'top 90%', // Adjust this to when you want the slider to start appearing
-        end: 'top 50%',   // Adjust this to when you want the slider to stop appearing
+        start: 'top 90%',
+        end: 'top 40%',
         scrub: 1,
-        onEnter: () => gsap.to('.testimonialSlider', { autoAlpha: 1 }), // Fade in
-        onLeaveBack: () => gsap.to('.testimonialSlider', { autoAlpha: 0 }), // Fade out when scrolling back
-        // markers: true
+        onEnter: () => gsap.to('.testimonialSlider', { autoAlpha: 1 }),
+        onLeaveBack: () => gsap.to('.testimonialSlider', { autoAlpha: 0 }),
       }
     });
   });
@@ -351,9 +350,10 @@ export default function Home() {
         </Div>
       </Div> */}
       {/* End Blog Section */}
-
+      <MovingText text="WE DESIGN ROBUST, INTUITIVE, AND SCALABLE MOBILE APPS WITH EASE" />
+      <Spacing lg="125" md="70" />
       {/* Start MovingText Section */}
-      {/* <Spacing lg="125" md="70" />
+      {/* 
       <MovingText text="Our reputed world wide partners" />
       <Spacing lg="105" md="70" /> */}
       {/* End MovingText Section */}
