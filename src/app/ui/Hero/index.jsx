@@ -3,7 +3,10 @@ import parse from 'html-react-parser';
 import Div from '../Div';
 import Button from '../Button';
 import VerticalLinks from '../VerticalLinks';
-
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
+import { ScrollTrigger } from 'gsap/all';
+gsap.registerPlugin(useGSAP, ScrollTrigger)
 export default function Hero({
   title,
   subtitle,
@@ -15,6 +18,29 @@ export default function Hero({
   bgImageUrl,
   videoUrl
 }) {
+  useGSAP(() => {
+    const tl = gsap.timeline()
+    tl.from(".cs-hero_title", {
+      scale: 0,
+      duration: 2.4,
+      ease: "expo.inOut",
+      opacity: 0
+    })
+    gsap.from(".cs-hero_subtitle ", {
+      x: 300,
+      delay: 1.5,
+      duration: 0.5,
+      ease: "expo.inOut",
+      opacity: 0
+    })
+    gsap.from(".btnQuote", {
+      scale: 0,
+      delay: 1.5,
+      duration: 0.5,
+      ease: "power1.in",
+      opacity: 0
+    })
+  })
   return (
 
     <Div
@@ -40,7 +66,7 @@ export default function Hero({
         <Div className="cs-hero_text">
           <h1 className='cs-hero_title'>{parse(title)}</h1>
           <Div className="cs-hero_info">
-            <Div>
+            <Div className="btnQuote">
               <Button btnLink={btnLink} btnText={btnText} />
             </Div>
             <Div>

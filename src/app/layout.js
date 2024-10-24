@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import Header from '@/app/ui/Header';
 import CustomCursor from '@/app/ui/CustomCursor';
-import Footer from '@/app/ui/Footer';
+import Footer from '@/app/ui/Footer/Footer';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import './scss/index.scss';
@@ -39,6 +39,7 @@ export default function RootLayout({ children }) {
         <Header />
         <CustomCursor />
         {children}
+        <Footer />
       </body>
     </html>
   );

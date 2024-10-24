@@ -4,6 +4,8 @@ import { Icon } from '@iconify/react';
 import Testimonial from '../Testimonial';
 import Div from '../Div';
 import Spacing from '../Spacing';
+import gsap from 'gsap';
+
 const testimonialData = [
   {
     testimonialThumb: '/images/testimonial_1.jpeg',
@@ -42,7 +44,7 @@ const testimonialData = [
 export default function TestimonialSlider() {
   const [nav1, setNav1] = useState();
   const [nav2, setNav2] = useState();
-
+  
   const SlickArrowLeft = ({ currentSlide, slideCount, ...props }) => (
     <div
       {...props}

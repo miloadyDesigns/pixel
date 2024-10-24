@@ -33,7 +33,7 @@ export default function Header({ variant }) {
             <Div className="cs-main_header_in">
               <Div className="cs-main_header_left">
                 <Link className="cs-site_branding" href="/">
-                  <Image src="/images/logo.svg" alt="Logo" width={100} height={100}/>
+                  <Image src="/images/logo.svg" alt="Logo" width={100} height={100} />
 
                 </Link>
               </Div>
@@ -43,12 +43,12 @@ export default function Header({ variant }) {
                     className="cs-nav_list"
                     style={{ display: `${mobileToggle ? 'block' : 'none'}` }}
                   >
-                    <li className="menu-item-has-children">
+                    <li className="menu-item-has-children text-lg font-semibold">
                       <Link href="/" onClick={() => setMobileToggle(false)}>
                         Home
                       </Link>
                     </li>
-                    <li>
+                    <li className='text-lg font-semibold'>
                       <Link
                         href="/"
                         onClick={() => setMobileToggle(false)}
@@ -57,7 +57,7 @@ export default function Header({ variant }) {
                       </Link>
                     </li>
 
-                    <li className="menu-item-has-children header-text">
+                    <li className="menu-item-has-children header-text text-lg font-semibold">
                       <Link
                         href="/"
                         onClick={() => setMobileToggle(false)}
@@ -86,7 +86,7 @@ export default function Header({ variant }) {
                       </DropDown> */}
                     </li>
 
-                    <li className="menu-item-has-children">
+                    <li className="menu-item-has-children text-lg font-semibold">
                       <Link href="/" onClick={() => setMobileToggle(false)}>
                         App Development
                       </Link>
@@ -135,7 +135,7 @@ export default function Header({ variant }) {
                         </ul>
                       </DropDown> */}
                     </li>
-                    <li>
+                    <li className='text-lg font-semibold'>
                       <Link
                         href="/"
                         onClick={() => setMobileToggle(false)}

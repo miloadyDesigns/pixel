@@ -109,9 +109,10 @@ export default function Home() {
       },
     })
     gsap.from('.portfolio', {
-      y: 120,
+      y: 160,
       opacity: 0.1,
       duration: 1.7,
+      delay: 4,
       scrollTrigger: {
         trigger: '.portfolio',
         start: 'top 80%', // Adjust as needed
@@ -119,7 +120,21 @@ export default function Home() {
         scrub: 1,
       },
     })
-
+    gsap.from('.testimonialSlider', {
+      y: 200,
+      opacity: 0,
+      duration: 1.6,
+      delay: 1,
+      scrollTrigger: {
+        trigger: '.testimonialSlider',
+        start: 'top 90%', // Adjust this to when you want the slider to start appearing
+        end: 'top 50%',   // Adjust this to when you want the slider to stop appearing
+        scrub: 1,
+        onEnter: () => gsap.to('.testimonialSlider', { autoAlpha: 1 }), // Fade in
+        onLeaveBack: () => gsap.to('.testimonialSlider', { autoAlpha: 0 }), // Fade out when scrolling back
+        // markers: true
+      }
+    });
   });
 
   return (
@@ -306,9 +321,11 @@ export default function Home() {
       {/* End Team Section */}
 
       {/* Start Testimonial Section */}
-      {/* <TestimonialSlider /> */}
+      <div className='testimonialSlider'>
+        <TestimonialSlider />
+      </div>
       {/* End Testimonial Section */}
-
+      <Spacing lg="150" md="80" />
       {/* Start Blog Section */}
       {/* <Spacing lg="150" md="80" />
       <Div className="cs-shape_wrap_4">
@@ -349,14 +366,15 @@ export default function Home() {
       {/* End LogoList Section */}
 
       {/* Start CTA Section */}
-      {/* <Div className="container">
+      <Div className="container">
         <Cta
           title="Let’s disscuse make <br />something <i>cool</i> together"
           btnText="Apply For Meeting"
           btnLink="/contact"
           bgSrc="/images/cta_bg.jpeg"
         />
-      </Div> */}
+      </Div>
+      <Spacing lg="125" md="70" />
       {/* End CTA Section */}
     </>
   );

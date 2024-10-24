@@ -31,7 +31,7 @@ export default function PortfolioSlider({ data }) {
       if (sliderRef.current) {
         sliderRef.current.slickNext();
       }
-    }, 2000); // Change slide every 2 seconds
+    }, 4000); 
 
     return () => clearInterval(interval); // Clear interval on component unmount
   }, []);

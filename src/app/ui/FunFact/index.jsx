@@ -35,16 +35,23 @@ export default function FunFact({ variant, title, subtitle, data }) {
       className={variant ? `cs-funfact_wrap ${variant} funfact_1` : 'cs-funfact_wrap'}
 
     >
+
+      
       <Div
         className="cs-funfact_shape"
         style={{ backgroundImage: 'url(/images/funfact_shape_bg.svg)' }}
       />
-      <Div className="cs-funfact_left">
+      <Div
+        className="cs-funfact_shape ml-[-14px]"
+        style={{ backgroundImage: 'url(/images/funfact_shape_bg.svg)' }}
+      />
+      <Div className="cs-funfact_left ">
         <Div className="cs-funfact_heading">
           <h2>{title}</h2>
           <p>{subtitle}</p>
         </Div>
       </Div>
+    
       <Div className="cs-funfact_right">
         <Div className="cs-funfacts">
           {data.map((item, index) => (
@@ -66,6 +73,7 @@ export default function FunFact({ variant, title, subtitle, data }) {
             </Div>
           ))}
         </Div>
+
       </Div>
     </div>
   );
