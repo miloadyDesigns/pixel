@@ -118,7 +118,7 @@ export default function Home() {
         trigger: '.portfolio',
         start: 'top 80%', // Adjust as needed
         end: 'bottom bottom',   // Adjust as needed
-        scrub: 1,
+        scrub: 4,
       },
     })
     gsap.from('.testimonialSlider', {
@@ -130,9 +130,38 @@ export default function Home() {
         trigger: '.testimonialSlider',
         start: 'top 90%',
         end: 'top 40%',
-        scrub: 1,
+        scrub: 4,
         onEnter: () => gsap.to('.testimonialSlider', { autoAlpha: 1 }),
         onLeaveBack: () => gsap.to('.testimonialSlider', { autoAlpha: 0 }),
+      }
+    });
+    gsap.from('.blog', {
+      y: 200,
+      opacity: 0,
+      duration: 1.6,
+      delay: 1,
+      scrollTrigger: {
+        trigger: '.blog',
+        start: 'top 90%',
+        end: 'top 40%',
+        scrub: 2,
+        onEnter: () => gsap.to('.blog', { autoAlpha: 1 }),
+        onLeaveBack: () => gsap.to('.blog', { autoAlpha: 0 }),
+      }
+    });
+    gsap.from('.cta', {
+      y: 200,
+      opacity: 0,
+      duration: 1.6,
+      delay: 1,
+      scrollTrigger: {
+        trigger: '.cta',
+        start: 'top 90%',
+        end: 'top 40%',
+        scrub: 2,
+        markers: true,
+        onEnter: () => gsap.to('.cta', { autoAlpha: 1 }),
+        onLeaveBack: () => gsap.to('.cta', { autoAlpha: 0 }),
       }
     });
   });
@@ -331,7 +360,7 @@ export default function Home() {
       <MovingText text="WE DESIGN ROBUST, INTUITIVE, AND SCALABLE MOBILE APPS WITH EASE" />
       {/* Start Blog Section */}
       <Spacing lg="150" md="80" />
-      <Div className="cs-shape_wrap_4">
+      <Div className="cs-shape_wrap_4 blog">
         <Div className="cs-shape_4"></Div>
         <Div className="cs-shape_4"></Div>
         <Div className="container">
@@ -372,7 +401,7 @@ export default function Home() {
       {/* End LogoList Section */}
 
       {/* Start CTA Section */}
-      <Div className="container">
+      <Div className="container cta">
         <Cta
           title="Let’s disscuse make <br />something <i>cool</i> together"
           btnText="Apply For Meeting"

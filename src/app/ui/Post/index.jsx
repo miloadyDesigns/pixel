@@ -4,7 +4,7 @@ import Div from '../Div';
 
 export default function Post({ url, src, alt, date, title }) {
   return (
-    <Div className="cs-post cs-style1">
+    <Div className="cs-post cs-style1 ml-3">
       <Link href={url} className="cs-post_thumb">
         <img src={src} alt={alt} />
         <Div className="cs-post_overlay" />

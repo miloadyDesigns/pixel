@@ -88,7 +88,7 @@ export default function PostSlider() {
   };
 
   return (
-    <Slider {...settings} className="cs-gap-24">
+    <Slider {...settings} className="cs-gap-24 space-x-3">
       {postData.map((item, index) => (
         <Div key={index}>
           <Post
