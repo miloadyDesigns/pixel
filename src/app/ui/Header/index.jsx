@@ -13,7 +13,7 @@ import { Icon } from '@iconify/react';
 import { useSideHeader } from '@/utils/SideHeaderToggle';
 
 export default function Header({ variant }) {
-  const { isOpen, closeSideHeader } = useSideHeader();
+  const { isOpen, closeSideHeader, openSideHeader } = useSideHeader();
   const [isSticky, setIsSticky] = useState(false);
   const [sideHeaderToggle, setSideHeaderToggle] = useState(false);
   const [mobileToggle, setMobileToggle] = useState(false);
@@ -50,9 +50,15 @@ export default function Header({ variant }) {
         <Div className="cs-main_header">
           <Div className="container">
             <Div className="cs-main_header_in">
-              <Div className="cs-main_header_left">
-                <Link className="cs-site_branding z-10" href="/">
-                  <Image src="/images/finalLogo.png" alt="Logo" width={150} height={300} />
+              <Div className="cs-main_header_left ">
+                <Link className="cs-site_branding" href="/">
+                  <Image
+                    src="/images/finalMainLogo.png"
+                    className='w-[200px] h-[300px]'
+                    alt="Logo"
+                    width={300}
+                    height={300}
+                  />
                 </Link>
               </Div>
               <Div className="cs-main_header_center">
@@ -98,7 +104,7 @@ export default function Header({ variant }) {
                 <Div className="cs-toolbox">
                   <span
                     className="cs-icon_btn"
-                    onClick={() => setSideHeaderToggle(!sideHeaderToggle)}
+                    onClick={() => openSideHeader()}
                   >
                     <span className="cs-icon_btn_in">
                       <span />
