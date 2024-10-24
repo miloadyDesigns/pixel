@@ -57,7 +57,7 @@ export default function Header({ variant }) {
                     <Image
                       src="/images/pixelLogo.png"
                       alt="Logo"
-                      width={214} // Adjusted width
+                      width={180} // Adjusted width
                       height={280} // Adjusted height
                       style={{
                         maxWidth: '80%', // Adjust this value as needed

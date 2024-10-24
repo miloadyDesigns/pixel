@@ -54,10 +54,11 @@ export default function PostSlider() {
     arrows: false,
     infinite: true,
     autoplay: true,
-    autoplaySpeed: 4000,
+    autoplaySpeed: 2000,
     speed: 1000,
     slidesToShow: 3,
     slidesToScroll: 1,
+    swipe: true,
     responsive: [
       {
         breakpoint: 1600,

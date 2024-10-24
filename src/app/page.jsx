@@ -80,7 +80,7 @@ const portfolioData = [
 ];
 
 export default function Home() {
-  
+
   useGSAP(() => {
     const tl = gsap.timeline({
       scrollTrigger: {
@@ -110,7 +110,7 @@ export default function Home() {
       },
     })
     gsap.from('.portfolio', {
-      y: 160,
+      y: 260,
       opacity: 0.1,
       duration: 1.7,
       delay: 4,
@@ -328,8 +328,9 @@ export default function Home() {
       </div>
       {/* End Testimonial Section */}
       <Spacing lg="150" md="80" />
+      <MovingText text="WE DESIGN ROBUST, INTUITIVE, AND SCALABLE MOBILE APPS WITH EASE" />
       {/* Start Blog Section */}
-      {/* <Spacing lg="150" md="80" />
+      <Spacing lg="150" md="80" />
       <Div className="cs-shape_wrap_4">
         <Div className="cs-shape_4"></Div>
         <Div className="cs-shape_4"></Div>
@@ -351,9 +352,11 @@ export default function Home() {
             </Div>
           </Div>
         </Div>
-      </Div> */}
+      </Div>
+
       {/* End Blog Section */}
-      <MovingText text="WE DESIGN ROBUST, INTUITIVE, AND SCALABLE MOBILE APPS WITH EASE" />
+
+      <Spacing lg="125" md="70" />
       <Spacing lg="125" md="70" />
       {/* Start MovingText Section */}
       {/* 
