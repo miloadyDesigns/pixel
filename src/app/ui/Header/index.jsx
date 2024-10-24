@@ -1,5 +1,7 @@
+// Header.js
 'use client';
 import { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
 import Div from '../Div';
 import Link from 'next/link';
 import DropDown from './DropDown';
@@ -8,7 +10,10 @@ import Newsletter from '../Widget/Newsletter';
 import SocialWidget from '../Widget/SocialWidget';
 import Image from 'next/image';
 import { Icon } from '@iconify/react';
+import { useSideHeader } from '@/utils/SideHeaderToggle';
+
 export default function Header({ variant }) {
+  const { isOpen, closeSideHeader } = useSideHeader();
   const [isSticky, setIsSticky] = useState(false);
   const [sideHeaderToggle, setSideHeaderToggle] = useState(false);
   const [mobileToggle, setMobileToggle] = useState(false);
@@ -17,150 +22,75 @@ export default function Header({ variant }) {
   const handleCallClick = () => {
     window.location.href = `tel:${phoneNumber}`;
   };
+
+
   useEffect(() => {
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 0) {
-        setIsSticky(true);
-      } else {
-        setIsSticky(false);
-      }
-    });
+
+
+    const handleScroll = () => {
+      setIsSticky(window.scrollY > 0);
+    };
+
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
+
+  const closeSideHeaderHandler = () => {
+
+  };
 
   return (
     <>
       <header
-        className={`cs-site_header cs-style1 text-uppercase ${variant ? variant : ''
-          } cs-sticky_header ${isSticky ? 'cs-sticky_header_active' : ''}`}
+        className={`cs-site_header cs-style1 text-uppercase ${variant ? variant : ''} cs-sticky_header ${isSticky ? 'cs-sticky_header_active' : ''}`}
       >
         <Div className="cs-main_header">
           <Div className="container">
             <Div className="cs-main_header_in">
               <Div className="cs-main_header_left">
-                <Link className="cs-site_branding" href="/">
-                  <Image src="/images/logo.svg" alt="Logo" width={100} height={100} />
-
+                <Link className="cs-site_branding z-10" href="/">
+                  <Image src="/images/finalLogo.png" alt="Logo" width={150} height={300} />
                 </Link>
               </Div>
               <Div className="cs-main_header_center">
                 <Div className="cs-nav cs-primary_font cs-medium">
-                  <ul
-                    className="cs-nav_list"
-                    style={{ display: `${mobileToggle ? 'block' : 'none'}` }}
-                  >
+                  <ul className="cs-nav_list" style={{ display: `${mobileToggle ? 'block' : 'none'}` }}>
                     <li className="menu-item-has-children text-lg font-semibold">
                       <Link href="/" onClick={() => setMobileToggle(false)}>
                         Home
                       </Link>
                     </li>
                     <li className='text-lg font-semibold'>
-                      <Link
-                        href="/"
-                        onClick={() => setMobileToggle(false)}
-                      >
+                      <Link href="/" onClick={() => setMobileToggle(false)}>
                         About
                       </Link>
                     </li>
-
                     <li className="menu-item-has-children header-text text-lg font-semibold">
-                      <Link
-                        href="/"
-                        onClick={() => setMobileToggle(false)}
-                      >
+                      <Link href="/" onClick={() => setMobileToggle(false)}>
                         Portfolio
                       </Link>
-                      {/* <DropDown>
-                        <ul>
-                          <li>
-                            <Link
-                              href="/portfolio"
-                              onClick={() => setMobileToggle(false)}
-                            >
-                              Portfolio
-                            </Link>
-                          </li>
-                          <li>
-                            <Link
-                              href="/portfolio/portfolio-details"
-                              onClick={() => setMobileToggle(false)}
-                            >
-                              Portfolio Details
-                            </Link>
-                          </li>
-                        </ul>
-                      </DropDown> */}
                     </li>
-
                     <li className="menu-item-has-children text-lg font-semibold">
                       <Link href="/" onClick={() => setMobileToggle(false)}>
                         App Development
                       </Link>
-                      {/* <DropDown>
-                        <ul>
-                          <li>
-                            <Link
-                              href="/contact"
-                              onClick={() => setMobileToggle(false)}
-                            >
-                              Contact
-                            </Link>
-                          </li>
-                          <li>
-                            <Link
-                              href="/team"
-                              onClick={() => setMobileToggle(false)}
-                            >
-                              Team
-                            </Link>
-                          </li>
-                          <li>
-                            <Link
-                              href="/team/team-details"
-                              onClick={() => setMobileToggle(false)}
-                            >
-                              Team Details
-                            </Link>
-                          </li>
-                          <li>
-                            <Link
-                              href="/case-study/case-study-details"
-                              onClick={() => setMobileToggle(false)}
-                            >
-                              Case Study Details
-                            </Link>
-                          </li>
-                          <li>
-                            <Link
-                              href="/faq"
-                              onClick={() => setMobileToggle(false)}
-                            >
-                              FAQ
-                            </Link>
-                          </li>
-                        </ul>
-                      </DropDown> */}
                     </li>
                     <li className='text-lg font-semibold'>
-                      <Link
-                        href="/"
-                        onClick={() => setMobileToggle(false)}
-                      >
+                      <Link href="/" onClick={() => setMobileToggle(false)}>
                         Contact
                       </Link>
                     </li>
                   </ul>
 
                   <span
-                    className={
-                      mobileToggle
-                        ? 'cs-munu_toggle cs-toggle_active'
-                        : 'cs-munu_toggle'
-                    }
+                    className={mobileToggle ? 'cs-munu_toggle cs-toggle_active' : 'cs-munu_toggle'}
                     onClick={() => setMobileToggle(!mobileToggle)}
                   >
                     <span></span>
                   </span>
-
                 </Div>
               </Div>
 
@@ -181,31 +111,23 @@ export default function Header({ variant }) {
                 <Div className="cs-toolbox ml-6">
                   <span
                     className="cs-icon_btn"
-                    onClick={() => handleCallClick()}
+                    onClick={handleCallClick}
                   >
                     <Icon icon="mdi:phone" width={24} height={24} color="white" />
                   </span>
                 </Div>
               </Div>
-
             </Div>
           </Div>
         </Div>
       </header>
 
       <Div
-        className={
-          sideHeaderToggle ? 'cs-side_header active' : 'cs-side_header'
-        }
+        className={isOpen ? 'cs-side_header active' : 'cs-side_header'}
+        style={{ overflowY: 'hidden' }}
       >
-        <button
-          className="cs-close"
-          onClick={() => setSideHeaderToggle(!sideHeaderToggle)}
-        />
-        <Div
-          className="cs-side_header_overlay"
-          onClick={() => setSideHeaderToggle(!sideHeaderToggle)}
-        />
+        <button className="cs-close" onClick={closeSideHeader} />
+        <Div className="cs-side_header_overlay" onClick={closeSideHeader} />
         <Div className="cs-side_header_in">
           <Div className="cs-side_header_shape" />
           <Link className="cs-site_branding" href="/">

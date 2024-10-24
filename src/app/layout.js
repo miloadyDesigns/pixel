@@ -9,6 +9,8 @@ import './scss/index.scss';
 import { Poppins, Open_Sans } from 'next/font/google';
 import Head from 'next/head';
 import "./globals.css"
+import { SideHeaderProvider } from '@/utils/SideHeaderToggle';
+
 const poppins = Poppins({
   subsets: ['latin'],
   weight: ['400', '600', '700'],
@@ -36,10 +38,12 @@ export default function RootLayout({ children }) {
         <link rel="icon" href="/logo.ico" sizes="any" />
       </Head>
       <body className={`${openSans.variable} ${poppins.variable}`}>
-        <Header />
-        <CustomCursor />
-        {children}
-        <Footer />
+        <SideHeaderProvider>
+          <Header />
+          <CustomCursor />
+          {children}
+          <Footer />
+        </SideHeaderProvider>
       </body>
     </html>
   );

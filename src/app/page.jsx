@@ -80,6 +80,7 @@ const portfolioData = [
 ];
 
 export default function Home() {
+  
   useGSAP(() => {
     const tl = gsap.timeline({
       scrollTrigger: {
