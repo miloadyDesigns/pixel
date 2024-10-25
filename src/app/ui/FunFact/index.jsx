@@ -36,7 +36,7 @@ export default function FunFact({ variant, title, subtitle, data }) {
 
     >
 
-      
+
       <Div
         className="cs-funfact_shape"
         style={{ backgroundImage: 'url(/images/funfact_shape_bg.svg)' }}
@@ -47,30 +47,35 @@ export default function FunFact({ variant, title, subtitle, data }) {
       />
       <Div className="cs-funfact_left ">
         <Div className="cs-funfact_heading">
-          <h2>{title}</h2>
+          <h2 style={{ fontSize: '28px' }}>{title}</h2>
           <p>{subtitle}</p>
         </Div>
       </Div>
-    
+
       <Div className="cs-funfact_right">
         <Div className="cs-funfacts">
           {data.map((item, index) => (
-            <Div className="cs-funfact cs-style1" key={index}>
-              <Div className="cs-funfact_number cs-primary_font cs-semi_bold cs-primary_color">
-                <span />
-                {inView && (
-                  <CountUp
-                    start={0}
-                    end={item.factNumber}
-                    duration={3}
-                    suffix="K"
-                  />
-                )}
+            <div>
+              <Div className="cs-funfact cs-style1" key={index}>
+                <Div className="cs-funfact_number cs-primary_font cs-semi_bold cs-primary_color">
+
+                  {inView && (
+                    <CountUp
+                      start={0}
+                      end={item.factNumber}
+                      duration={3}
+                      suffix="K"
+                    />
+                  )}
+                </Div>
+                <br />
+                <Div className="cs-funfact_text">
+                  <span className="cs-accent_color">+</span>
+                </Div>
               </Div>
-              <Div className="cs-funfact_text">
-                <span className="cs-accent_color">+</span>
-              </Div>
-            </Div>
+              <h1 className='text-xl'>{item.title}</h1>
+            </div>
+
           ))}
         </Div>
 

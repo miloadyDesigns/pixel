@@ -75,29 +75,29 @@ export default function Header({ variant }) {
               <Div className="cs-main_header_center">
                 <Div className="cs-nav cs-primary_font cs-medium">
                   <ul className="cs-nav_list" style={{ display: `${mobileToggle ? 'block' : 'none'}` }}>
-                    <li className="menu-item-has-children text-lg font-semibold">
+                    {/* <li className="menu-item-has-children text-lg font-semibold">
                       <Link href="/" onClick={() => setMobileToggle(false)}>
                         Home
                       </Link>
-                    </li>
+                    </li> */}
                     <li className='text-lg font-semibold'>
                       <Link href="/about" onClick={() => setMobileToggle(false)}>
-                        About
+                        Behind Creativity
                       </Link>
                     </li>
                     <li className="menu-item-has-children header-text text-lg font-semibold">
-                      <Link href="/" onClick={() => setMobileToggle(false)}>
-                        Portfolio
+                      <Link href="/portfolio" onClick={() => setMobileToggle(false)}>
+                        Creative Showcase
                       </Link>
                     </li>
                     <li className="menu-item-has-children text-lg font-semibold">
                       <Link href="/" onClick={() => setMobileToggle(false)}>
-                        App Development
+                        App Evolution
                       </Link>
                     </li>
                     <li className='text-lg font-semibold'>
                       <Link href="/contact" onClick={() => setMobileToggle(false)}>
-                        Contact
+                        Connect
                       </Link>
                     </li>
                   </ul>
@@ -112,7 +112,15 @@ export default function Header({ variant }) {
               </Div>
 
               <Div className="cs-main_header_right">
-                <Div className="cs-toolbox">
+                <Div className="cs-toolbox ml-6">
+                  <span
+                    className="cs-icon_btn"
+                    onClick={handleCallClick}
+                  >
+                    <Icon icon="mdi:phone" width={24} height={24} color="white" />
+                  </span>
+                </Div>
+                <Div className="cs-toolbox ml-4">
                   <span
                     className="cs-icon_btn"
                     onClick={() => openSideHeader()}
@@ -125,14 +133,7 @@ export default function Header({ variant }) {
                     </span>
                   </span>
                 </Div>
-                <Div className="cs-toolbox ml-6">
-                  <span
-                    className="cs-icon_btn"
-                    onClick={handleCallClick}
-                  >
-                    <Icon icon="mdi:phone" width={24} height={24} color="white" />
-                  </span>
-                </Div>
+
               </Div>
             </Div>
           </Div>
@@ -164,7 +165,7 @@ export default function Header({ variant }) {
           </Link>
           <Div className="cs-side_header_box pb-3">
             <h2 className="cs-side_header_heading">
-              Do you have a project in your <br /> mind? Keep connect us.
+              Have an idea you want to explore?  <br /> We’d love to collaborate!.
             </h2>
           </Div>
           <Div className="cs-side_header_box">

@@ -37,19 +37,19 @@ const heroSocialLinks = [
 // FunFact Data
 const funfaceData = [
   {
-    title: 'Global Happy Clients',
+    title: 'Solutions Delivered',
     factNumber: '40',
   },
   {
-    title: 'Project Completed',
+    title: 'Clients Served',
     factNumber: '50',
   },
   {
-    title: 'Team Members',
+    title: 'Cooperative Work',
     factNumber: '245',
   },
   {
-    title: 'Digital products',
+    title: 'Code Crafted',
     factNumber: '550',
   },
 ];
@@ -83,30 +83,32 @@ const portfolioData = [
 
 export default function Home() {
   const isMobile = useIsMobile();
+  const lineRef = useRef()
 
-  // const lineRef = useRef()
-  // useEffect(() => {
-  //   const line = lineRef.current;
-  //   if (line) {
-  //     const length = line.getTotalLength();
-  //     // Set up the dash properties
-  //     gsap.set(line, {
-  //       strokeDasharray: length,
-  //       strokeDashoffset: length,
-  //     });
+  useEffect(() => {
+    const line = lineRef.current;
 
-  //     gsap.to(line, {
-  //       strokeDashoffset: 0,
-  //       duration: 2, // Adjust the duration as needed
-  //       scrollTrigger: {
-  //         trigger: ".line",
-  //         start: "top 40%", // Adjust as needed
-  //         end: "bottom 50%", // Adjust as needed
-  //         scrub: 1,
-  //       },
-  //     });
-  //   }
-  // }, []);
+    const length = line.getTotalLength();
+
+    gsap.set(line, {
+      strokeDasharray: length
+    });
+
+    gsap.fromTo(line,
+      {
+        strokeDashoffset: length
+      }, {
+      strokeDashoffset: 0,
+      ease: "none",
+      scrollTrigger: {
+        trigger: ".line",
+        start: "top 60%",
+        end: "bottom bottom",
+        scrub: 4,
+      },
+    },);
+
+  }, []);
 
 
   useGSAP(() => {
@@ -205,8 +207,8 @@ export default function Home() {
       {/* Start Hero Section */}
       <Hero
         title="Creativity In <br/>Our Blood Line"
-        subtitle="We deliver best problem solving solution for our client and provide finest finishing product in present and upcoming future."
-        btnText="Get a Quote"
+        subtitle="We craft solutions that solve today’s challenges and set you up for tomorrow’s success, delivering results that look as sharp as they perform."
+        btnText="Request Estimate"
         btnLink="/contact"
         scrollDownId="#service"
         socialLinksHeading="Follow Us"
@@ -220,18 +222,29 @@ export default function Home() {
       <div className="container" >
         <FunFact
           variant="cs-type1"
-          title="Our fun fact"
-          subtitle="Sed ut perspiciatis unde omnis iste natus error voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis."
+          title="Impressive Milestones"
+          subtitle="Did you know? Our journey is marked by impressive achievements that reflect our commitment to innovation and excellence. Here’s what we’ve accomplished so far"
           data={funfaceData}
         />
       </div>
       {/* End FunFact Section */}
-      {/* <div className='absolute line border'>
-        <svg width="1670" height="802" viewBox="0 0 1670 802" fill="none" xmlns="http://www.w3.org/2000/svg" re>
-          <path d="M2.5 233.5C8.1 233.5 410 85 608 211.5C806 338 907.703 399.394 873 570C835.168 755.991 637.5 808.5 430.5 771C223.5 733.5 155 642.5 180 495.5C205 348.5 257.372 265.271 366.5 165C605.611 -54.703 936.076 -26.9357 1198 165C1273.3 220.178 1355.5 270 1364 337C1372.5 404 1407.5 674.5 1182 771C956.5 867.5 877 603.5 887.5 488.5C896.857 386.016 1049.17 313.313 1082.21 298.702C1086.41 296.846 1090.12 294.254 1093.85 291.571C1104.76 283.709 1134.16 267.314 1198 258.5C1284 246.627 1348 221.5 1313 363C1278 504.5 1528 415.5 1618.5 481C1709 546.5 1621.5 495.5 1621.5 495.5" stroke="#FF0000" stroke-opacity="0.97" stroke-width="19" />
-        </svg>
-
-      </div> */}
+      <svg className='absolute line -mt-40 -ml-12' width="2224" height="4404" viewBox="0 0 2224 4404" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M43.2501 3.5875C173.97 102.975 483.808 305.321 677.406 319.598C919.404 337.444 1164.61 132.12 1322.64 218.62C1480.67 305.121 1449.53 439.963 1238.56 711.295C1027.6 982.626 989.957 1128.95 1040.11 1246.83C1090.26 1364.72 1309.66 1360.76 1668.76 1056.8C2027.86 752.848 2206.75 1165.9 2219.61 1478.13C2232.46 1790.36 1904.04 1934.17 1556.9 2070.58C1209.75 2206.98 535.585 2163.87 392.464 2474.78C249.344 2785.69 453.714 2979.3 671.109 3064.73C888.505 3150.16 1265.99 2834.51 1512.47 2900.82C1758.96 2967.14 1850 3262.46 1585.91 3680.4C1321.81 4098.33 776.965 3780.71 487.183 4005.43C255.357 4185.21 67.9426 4344.04 3.21375 4400.98" stroke="url(#paint0_linear_24_592)" stroke-width="7" ref={lineRef} />
+        <defs>
+          <linearGradient id="paint0_linear_24_592" x1="168.654" y1="199.65" x2="1969.96" y2="4053.43" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#090909" />
+            <stop offset="0.115" stop-color="#D01010" />
+            <stop offset="0.22" stop-color="#670000" />
+            <stop offset="0.325" stop-color="#FF4A17" />
+            <stop offset="0.43" stop-color="#A90E0A" />
+            <stop offset="0.53" stop-color="white" />
+            <stop offset="0.65" stop-color="#E95334" />
+            <stop offset="0.775" stop-color="#910000" />
+            <stop offset="0.87" stop-color="white" />
+            <stop offset="1" stop-color="#260708" />
+          </linearGradient>
+        </defs>
+      </svg>
       {/* Start Service Section */}
       <Spacing lg="120" md="80" />
       <div id="service" className="services-section-1" >
@@ -239,9 +252,10 @@ export default function Home() {
           <Div className="row">
             <Div className="col-xl-4 services-heading">
               <SectionHeading
-                title="App Services we can help you with"
-                subtitle="What Can We Do"
-                btnText="See All Services"
+                title="Our Capabilities"
+                subtitle="Empowering Your Vision Through Technology."
+                subtitle2="We blend innovation with technology to bring your ideas to life. Our expert team specializes in crafting mobile apps and robust backend solutions, ensuring your vision is realized seamlessly."
+                btnText="Explore Services"
                 btnLink="/service"
               />
               <Spacing lg="90" md="45" />
@@ -251,7 +265,7 @@ export default function Home() {
                 <Div className="col-lg-3 col-sm-6 cs-hidden_mobile"></Div>
                 <Div className="col-lg-3 col-sm-6 card-1">
                   <Card
-                    title="UI/UX design"
+                    title="Mobile App Mastery"
                     link="/service/service-details"
                     src="/images/service_1.jpeg"
                     alt="Service"
@@ -261,7 +275,7 @@ export default function Home() {
                 <Div className="col-lg-3 col-sm-6 cs-hidden_mobile"></Div>
                 <Div className="col-lg-3 col-sm-6 card-2">
                   <Card
-                    title="App Maintenance"
+                    title="Backend Brilliance"
                     link="/service/service-details"
                     src="/images/service_2.jpeg"
                     alt="Service"
@@ -270,7 +284,7 @@ export default function Home() {
                 </Div>
                 <Div className="col-lg-3 col-sm-6 card-3">
                   <Card
-                    title="Hybird App Development (IOS/ANDROID)"
+                    title="App Care"
                     link="/service/service-details"
                     src="/images/service_3.jpeg"
                     alt="Service"
@@ -280,7 +294,7 @@ export default function Home() {
                 <Div className="col-lg-3 col-sm-6 cs-hidden_mobile"></Div>
                 <Div className="col-lg-3 col-sm-6 card-4">
                   <Card
-                    title="Backend Development"
+                    title="Beyond Apps"
                     link="/service/service-details"
                     src="/images/service_4.jpeg"
                     alt="Service"
@@ -296,16 +310,17 @@ export default function Home() {
         </Div>
       </div>
       {/* End Service Section */}
-      <Spacing lg="150" md="50" />
+      {/* <Spacing lg="150" md="50" />
       <MovingText text="WE BUILD DYNAMIC, SECURE, AND EFFICIENT SOFTWARE APPLICATIONS SEAMLESSLY." />
+      <Spacing lg="150" md="50" /> */}
       <Spacing lg="150" md="50" />
-      <div className='marquee xs:flex-col lg:flex-row h-[250px] rounded-xl relative overflow-y-hidden'>
+      <div className='marquee xs:flex-col lg:flex-row h-[250px] rounded-xl z-50 relative overflow-hidden'>
         <div className='absolute inset-0' style={{
-          background: 'linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(170,170,170,0.5) 50%, rgba(255,255,255,1) 100%)',
-          opacity: 0.6
+          background: 'linear-gradient(90deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.7) 80%, rgba(0,0,0,0.5) 100%)',
+          opacity: 1
         }}></div>
         <div className='first xs:w-[100%] lg:w-[50%] p-4 relative z-10'>
-          <h3 className="xs:text-[24px] lg:text-4xl text-white">Partners we are working with currently</h3>
+          <h3 className="xs:text-[24px] lg:text-4xl text-white ">Our Trusted Allies in Technology</h3>
         </div>
         <div className='second xs:w-[100%] relative overflow-hidden'>
           <Marquee className='overflow-hidden'>
@@ -322,15 +337,15 @@ export default function Home() {
       {/* <Spacing lg="150" md="50" /> */}
 
       {/* Start Portfolio Section */}
-      <Spacing lg="150" md="50" />
+      <Spacing lg="70" md="50" />
       <Div className="portfolio overflow-hidden">
         <Div className="container">
           <SectionHeading
-            title="Portfolio to explore"
-            subtitle="Latest Projects"
+            title="What We’ve Achieved: Get Inspired!"
+            subtitle="Recent Projects"
             variant="cs-style1 text-center"
           />
-          <Spacing lg="90" md="45" />
+          <Spacing lg="70" md="45" />
         </Div>
         <PortfolioSlider data={portfolioData} />
       </Div>
@@ -395,19 +410,20 @@ export default function Home() {
         <TestimonialSlider />
       </div>
       {/* End Testimonial Section */}
-      <Spacing lg="150" md="80" />
-      <MovingText text="WE DESIGN ROBUST, INTUITIVE, AND SCALABLE MOBILE APPS WITH EASE" />
+      <Spacing lg="120" md="60" />
+      <MovingText text="EMPOWERING VISIONS, BUILDING SUCCESS" />
       {/* Start Blog Section */}
-      <Spacing lg="150" md="80" />
+      <Spacing lg="120" md="60" />
       <Div className="cs-shape_wrap_4 blog">
-        <Div className="cs-shape_4"></Div>
-        <Div className="cs-shape_4"></Div>
+        <Div className="cs-shape_4" style={{ background: 'radial-gradient(circle, rgba(255, 74, 23, 0.8), rgba(153, 44, 14, 0.8))' }}></Div>
+        <Div className="cs-shape_4" style={{ background: 'radial-gradient(circle, rgba(255, 74, 23, 0.8), rgba(153, 44, 14, 0.8))' }}></Div>
+
         <Div className="container">
           <Div className="row">
             <Div className="col-xl-4">
               <SectionHeading
-                title="Explore recent publication"
-                subtitle="Our Blog"
+                title="Explore Our recent publication"
+                subtitle=""
                 btnText="View More Blog"
                 btnLink="/blog"
               />
@@ -442,8 +458,8 @@ export default function Home() {
       {/* Start CTA Section */}
       <Div className="container cta">
         <Cta
-          title="Let’s disscuse make <br />something <i>cool</i> together"
-          btnText="Apply For Meeting"
+          title="Eager to start your next project? <br />Let’s <i>Collaborate!</i> "
+          btnText="Book Your Meeting"
           btnLink="/contact"
           bgSrc="/images/cta_bg.jpeg"
         />

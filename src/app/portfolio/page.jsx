@@ -107,8 +107,8 @@ export default function PortfolioPage() {
     <>
       <PageHeading
         title="Portfolio"
-        bgSrc="/images/portfolio_hero_bg.jpeg"
-        pageLinkText="Portfolio"
+        videoSrc="/video/blackWhiteVideo.mp4"
+        pageLinkText="portfolio"
       />
       <Spacing lg="145" md="80" />
       <Div className="container">
@@ -136,15 +136,13 @@ export default function PortfolioPage() {
         <Div className="row">
           {portfolioData.slice(0, itemShow).map((item, index) => (
             <Div
-              className={`${
-                index === 3 || index === 6 ? 'col-lg-8' : 'col-lg-4'
-              } ${
-                active === 'all'
+              className={`${index === 3 || index === 6 ? 'col-lg-8' : 'col-lg-4'
+                } ${active === 'all'
                   ? ''
                   : !(active === item.category)
-                  ? 'd-none'
-                  : ''
-              }`}
+                    ? 'd-none'
+                    : ''
+                }`}
               key={index}
             >
               <Portfolio

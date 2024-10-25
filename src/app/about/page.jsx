@@ -18,11 +18,11 @@ import aboutImg4 from '../../../public/images/about_img_4.jpeg'
 const funfaceData = [
   {
     title: 'Global Happy Clients',
-    factNumber: '40K',
+    factNumber: '40',
   },
   {
     title: 'Project Completed',
-    factNumber: '50K',
+    factNumber: '50',
   },
   {
     title: 'Team Members',
@@ -39,7 +39,7 @@ export default function AboutPage() {
     <>
       {/* Start Page Heading Section */}
       <PageHeading
-        title="About"
+        title="Behind Creativity"
         videoSrc="/video/blackWhiteVideo.mp4"
         pageLinkText="about"
       />
@@ -56,11 +56,7 @@ export default function AboutPage() {
             >
               <Spacing lg="30" md="20" />
               <p className="cs-m0">
-                This is the main factor that sets us apart from our competition
-                and allows us to deliver a specialist business consultancy
-                service. Our team applies its wide-ranging experience to
-                determining. Through our years of experience, we’ve also learned
-                that while each channel.
+              At Pixel Brain Designs, we believe that every idea has the potential to become extraordinary. Founded on a passion for innovation and a commitment to excellence, we are more than just a design agency—we are your partners in crafting digital experiences that inspire and engage.
               </p>
               <Spacing lg="30" md="30" />
               <Div className="cs-separator cs-accent_bg"></Div>
@@ -107,7 +103,7 @@ export default function AboutPage() {
       {/* End Fun Fact Section */}
 
       {/* Start Why Choose Section */}
-      {/* <Spacing lg="100" md="80" />
+      <Spacing lg="100" md="80" />
       <Div className="container">
         <Div className="row">
           <Div className="col-xl-5 col-lg-6">
@@ -148,7 +144,7 @@ export default function AboutPage() {
             </SectionHeading>
           </Div>
         </Div>
-      </Div> */}
+      </Div>
       {/* End Why Choose Section */}
 
       {/* Start Team Section */}
@@ -165,7 +161,7 @@ export default function AboutPage() {
       {/* End Team Section */}
 
       {/* Start CTA Section */}
-      {/* <Spacing lg="150" md="80" />
+      <Spacing lg="150" md="80" />
       <Div className="container">
         <Cta
           title="Let’s disscuse make <br />something <i>cool</i> together"
@@ -173,7 +169,8 @@ export default function AboutPage() {
           btnLink="/contact"
           bgSrc="/images/cta_bg.jpeg"
         />
-      </Div> */}
+      </Div>
+      <Spacing lg="150" md="80" />
       {/* End CTA Section */}
     </>
   );

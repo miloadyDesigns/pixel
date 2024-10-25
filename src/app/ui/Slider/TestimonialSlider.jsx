@@ -10,24 +10,23 @@ const testimonialData = [
   {
     testimonialThumb: '/images/testimonial_1.jpeg',
     testimonialText:
-      'I wish I would have thought of it first. Creative agency is the most tech valuable business resource we have ever purchased. Dude your stuff  is the bomb! eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt to the explicabo.',
-    avatarName: 'Ahon Monsery',
+      'I wish I would have thought of it first. Creative agency is the most tech valuable business resourWorking with Pixel Brain Designs was a game-changer for our app. Their team’s creativity and technical prowess made the entire process enjoyable and efficient!',
+    avatarName: 'Emily Thompson',
     avatarDesignation: 'CEO AT TECH',
     ratings: '4',
   },
   {
     testimonialThumb: '/images/testimonial_2.jpeg',
-    testimonialText:
-      'I wish I would have thought of it first. Creative agency is the most tech valuable business resource we have ever purchased. Dude your stuff  is the bomb! eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt to the explicabo.',
-    avatarName: 'Ahon Monsery',
+    testimonialText: 'Absolutely thrilled with the results! PBD understood our vision perfectly and delivered an innovative solution that exceeded our expectations.',
+    avatarName: 'Michael Rivera',
     avatarDesignation: 'CEO AT TECH',
     ratings: '5',
   },
   {
     testimonialThumb: '/images/testimonial_3.jpeg',
     testimonialText:
-      'I wish I would have thought of it first. Creative agency is the most tech valuable business resource we have ever purchased. Dude your stuff  is the bomb! eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt to the explicabo.',
-    avatarName: 'Ahon Monsery',
+      'Our new mobile app is fantastic! The attention to detail from Pixel Brain Designs really stands out. Highly recommended!',
+    avatarName: 'Samantha Hughes',
     avatarDesignation: 'CEO AT TECH',
     ratings: '4.5',
   },
@@ -35,7 +34,15 @@ const testimonialData = [
     testimonialThumb: '/images/testimonial_1.jpeg',
     testimonialText:
       'I wish I would have thought of it first. Creative agency is the most tech valuable business resource we have ever purchased. Dude your stuff  is the bomb! eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt to the explicabo.',
-    avatarName: 'Ahon Monsery',
+    avatarName: 'James O\' Connor',
+    avatarDesignation: 'CEO AT TECH',
+    ratings: '3.5',
+  },
+  {
+    testimonialThumb: '/images/testimonial_1.jpeg',
+    testimonialText:
+      'PBD guided us through every step of the process. Their professionalism and creativity made a huge difference in the success of our project. So grateful!',
+    avatarName: 'Lily Anderson',
     avatarDesignation: 'CEO AT TECH',
     ratings: '3.5',
   },

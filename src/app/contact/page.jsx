@@ -10,7 +10,7 @@ export default function ContactPage() {
   return (
     <>
       <PageHeading
-        title="Contact Us"
+        title="Get in Touch!"
         videoSrc="/video/blackWhiteVideo.mp4"
         pageLinkText="Contact"
       />
@@ -19,8 +19,8 @@ export default function ContactPage() {
         <Div className="row">
           <Div className="col-lg-6">
             <SectionHeading
-              title="Do you have a project <br/>in your mind?"
-              subtitle="Getting Touch"
+              title="Have an idea you want to explore? We’d love to collaborate!"
+              subtitle="Let’s bring your vision to life!"
             />
             <Spacing lg="55" md="30" />
             <ContactInfoWidget withIcon />
