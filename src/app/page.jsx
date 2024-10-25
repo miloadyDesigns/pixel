@@ -21,6 +21,7 @@ import { useGSAP } from '@gsap/react'
 import Marquee from 'react-fast-marquee';
 import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
+import { useIsMobile } from '@/utils/useIsMobile';
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 // Hero Social Links
 const heroSocialLinks = [
@@ -81,6 +82,8 @@ const portfolioData = [
 ];
 
 export default function Home() {
+  const isMobile = useIsMobile();
+
   // const lineRef = useRef()
   // useEffect(() => {
   //   const line = lineRef.current;
@@ -105,92 +108,97 @@ export default function Home() {
   //   }
   // }, []);
 
+
   useGSAP(() => {
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: '.services-section-1',
-        start: 'top 100%', // Starts the animation when the top of the section is 80% from the top of the viewport
-        end: 'bottom 90%', // Ends the animation when the bottom of the section is 20% from the top of the viewport
-        scrub: 4, // Smoothly syncs the animation to the scrollbar
+    let mm = gsap.matchMedia();
+    mm.add("(min-width: 800px)", () => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: '.services-section-1',
+          start: isMobile ? 'top 60%' : 'top 100%',
+          end: isMobile ? 'bottom 30%' : 'bottom 90%',
+          scrub: 4
+        },
+      });
 
-      },
+      tl.from('.services-heading', { x: isMobile ? -30 : -800, opacity: 0, duration: 0.5 });
+      tl.from('.card-1', { x: isMobile ? -30 : -400, opacity: 0, duration: 0.5 });
+      tl.from('.card-2', { x: isMobile ? -30 : -400, opacity: 0, duration: 0.5 });
+      tl.from('.card-3', { x: isMobile ? 30 : 400, opacity: 0, duration: 0.5 });
+      tl.from('.card-4', { x: isMobile ? 30 : 400, opacity: 0, duration: 0.5 });
+
+      gsap.from('.marquee', {
+        y: isMobile ? 50 : 160,
+        opacity: 0.1,
+        duration: 1.7,
+        scrollTrigger: {
+          trigger: '.marquee',
+          start: isMobile ? 'top 60%' : 'top 80%',
+          end: isMobile ? 'top 50%' : 'top 50%',
+          scrub: 1,
+        },
+      });
+
+      gsap.from('.portfolio', {
+        y: isMobile ? 50 : 260,
+        opacity: 0.1,
+        duration: 1.7,
+        delay: 4,
+        scrollTrigger: {
+          trigger: '.portfolio',
+          start: isMobile ? 'top 70%' : 'top 80%',
+          end: 'bottom bottom',
+          scrub: 4,
+        },
+      });
+
+      gsap.from('.testimonialSlider', {
+        y: isMobile ? 50 : 200,
+        opacity: 0,
+        duration: 1.6,
+        delay: 1,
+        scrollTrigger: {
+          trigger: '.testimonialSlider',
+          start: isMobile ? 'top 90%' : 'top 90%',
+          end: isMobile ? 'top 60%' : 'top 40%',
+          scrub: 4,
+          onEnter: () => gsap.to('.testimonialSlider', { autoAlpha: 1 }),
+          onLeaveBack: () => gsap.to('.testimonialSlider', { autoAlpha: 0 }),
+        },
+      });
+
+      gsap.from('.blog', {
+        y: isMobile ? 50 : 200,
+        opacity: 0,
+        duration: 1.6,
+        delay: 1,
+        scrollTrigger: {
+          trigger: '.blog',
+          start: isMobile ? 'top 90%' : 'top 90%',
+          end: isMobile ? 'top 60%' : 'top 40%',
+          scrub: 2,
+          onEnter: () => gsap.to('.blog', { autoAlpha: 1 }),
+          onLeaveBack: () => gsap.to('.blog', { autoAlpha: 0 }),
+        },
+      });
+
+      gsap.from('.cta', {
+        y: isMobile ? 50 : 200,
+        opacity: 0,
+        duration: 1.6,
+        delay: 1,
+        scrollTrigger: {
+          trigger: '.cta',
+          start: isMobile ? 'top 90%' : 'top 90%',
+          end: isMobile ? 'top 60%' : 'top 40%',
+          scrub: 2,
+          onEnter: () => gsap.to('.cta', { autoAlpha: 1 }),
+          onLeaveBack: () => gsap.to('.cta', { autoAlpha: 0 }),
+        },
+      });
     });
-
-    tl.from('.services-heading', { x: -800, opacity: 0, duration: 0.5 });
-    tl.from('.card-1', { x: -400, opacity: 0, duration: 0.5 });
-    tl.from('.card-2', { x: -400, opacity: 0, duration: 0.5 });
-    tl.from('.card-3', { x: 400, opacity: 0, duration: 0.5 });
-    tl.from('.card-4', { x: 400, opacity: 0, duration: 0.5 });
-
-    gsap.from('.marquee', {
-      y: 160,
-      opacity: 0.1,
-      duration: 1.7,
-      scrollTrigger: {
-        trigger: '.marquee',
-        start: 'top 80%', // Adjust as needed
-        end: 'top 50%',   // Adjust as needed
-        scrub: 1,
-      },
-    })
-    gsap.from('.portfolio', {
-      y: 260,
-      opacity: 0.1,
-      duration: 1.7,
-      delay: 4,
-      scrollTrigger: {
-        trigger: '.portfolio',
-        start: 'top 80%', // Adjust as needed
-        end: 'bottom bottom',   // Adjust as needed
-        scrub: 4,
-      },
-    })
-    gsap.from('.testimonialSlider', {
-      y: 200,
-      opacity: 0,
-      duration: 1.6,
-      delay: 1,
-      scrollTrigger: {
-        trigger: '.testimonialSlider',
-        start: 'top 90%',
-        end: 'top 40%',
-        scrub: 4,
-        onEnter: () => gsap.to('.testimonialSlider', { autoAlpha: 1 }),
-        onLeaveBack: () => gsap.to('.testimonialSlider', { autoAlpha: 0 }),
-      }
-    });
-    gsap.from('.blog', {
-      y: 200,
-      opacity: 0,
-      duration: 1.6,
-      delay: 1,
-      scrollTrigger: {
-        trigger: '.blog',
-        start: 'top 90%',
-        end: 'top 40%',
-        scrub: 2,
-        onEnter: () => gsap.to('.blog', { autoAlpha: 1 }),
-        onLeaveBack: () => gsap.to('.blog', { autoAlpha: 0 }),
-      }
-    });
-    gsap.from('.cta', {
-      y: 200,
-      opacity: 0,
-      duration: 1.6,
-      delay: 1,
-      scrollTrigger: {
-        trigger: '.cta',
-        start: 'top 90%',
-        end: 'top 40%',
-        scrub: 2,
-
-        onEnter: () => gsap.to('.cta', { autoAlpha: 1 }),
-        onLeaveBack: () => gsap.to('.cta', { autoAlpha: 0 }),
-      }
-    });
-
-    // gsap.fromTo()
   });
+
 
   return (
     <>
