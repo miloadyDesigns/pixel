@@ -20,7 +20,8 @@ const Footer = () => {
                     />
                 </div>
                 <div className='p-2 '>
-                    <p>Welcome to arino sed ut perspiciae omunde omnis iste natus error sitort voluptatem accusantium.</p>
+                    <p>At Pixel Brain Designs, we’re committed to crafting digital experiences that inspire and connect. Let’s bring your ideas to life.
+                    </p>
                 </div>
                 <div className='flex flex-row justify-around w-[30%] pl-2 pt-3 space-x-2 cursor-pointer xs:mb-4 lg:mb-0'>
                     <div className='border-2  p-2 rounded-full transition-colors duration-300 hover:border-[#ff4a17] hover:bg-gray-800'>
@@ -39,13 +40,15 @@ const Footer = () => {
             </div>
             <div className='xs:w-full lg:w-[20%]'>
                 <div className='pl-2 pt-3'>
-                    <h1 className='font-semibold text-[20px]'>Services</h1>
+                    <h1 className='font-semibold text-[20px]'>Quick Links</h1>
                 </div>
                 <ul className='pl-2 pt-6 cursor-pointer '>
-                    <li className='pb-3 transition-all duration-300 hover:text-[#ff4a17]'>Web Development</li>
-                    <li className='pb-3 transition-all duration-300 hover:text-[#ff4a17]'>App Development</li>
-                    <li className='pb-3 transition-all duration-300 hover:text-[#ff4a17]'>UI/UX Designing</li>
-                    <li className='pb-3 transition-all duration-300 hover:text-[#ff4a17]'>Backend Development</li>
+                    <li className='pb-3 transition-all duration-300 hover:text-[#ff4a17]'>Behind Creativity</li>
+                    <li className='pb-3 transition-all duration-300 hover:text-[#ff4a17]'>Creatvity Showcase</li>
+                    <li className='pb-3 transition-all duration-300 hover:text-[#ff4a17]'>App Evalutuion</li>
+                    <li className='pb-3 transition-all duration-300 hover:text-[#ff4a17]'>Connect</li>
+                    <li className='pb-3 transition-all duration-300 hover:text-[#ff4a17]'>Privacy Policy </li>
+                    <li className='pb-3 transition-all duration-300 hover:text-[#ff4a17]'>Terms & Conditions</li>
                 </ul>
             </div>
             <div className='xs:w-full lg:w-[20%]'>

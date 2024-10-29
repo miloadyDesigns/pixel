@@ -91,8 +91,13 @@ export default function Header({ variant }) {
                       </Link>
                     </li>
                     <li className="menu-item-has-children text-lg font-semibold">
-                      <Link href="/" onClick={() => setMobileToggle(false)}>
+                      <Link href="/app-evolution" onClick={() => setMobileToggle(false)}>
                         App Evolution
+                      </Link>
+                    </li>
+                    <li className="menu-item-has-children text-lg font-semibold">
+                      <Link href="/beyound-apps" onClick={() => setMobileToggle(false)}>
+                        Beyond Apps
                       </Link>
                     </li>
                     <li className='text-lg font-semibold'>
@@ -177,26 +182,34 @@ export default function Header({ variant }) {
                 <form action="#" className="row">
                   <Div className="col-sm-12 pb-2">
                     <label className="cs-primary_color">Full Name*</label>
-                    <input type="text" className="cs-form_field" placeholder='John Doe' />
+                    <input type="text" className="cs-form_field" placeholder='Enter name' />
                   </Div>
 
                   <Div className="col-sm-12 pb-2">
-                    <label className="cs-primary_color">Email*</label>
-                    <input type="text" className="cs-form_field" placeholder='john@gmail.com' />
+                    <label className="cs-primary_color">Email Address*</label>
+                    <input type="text" className="cs-form_field" placeholder='Enter email' />
 
                   </Div>
                   <Div className="col-sm-12 pb-2">
-                    <label className="cs-primary_color">Project Type*</label>
-                    <input type="text" className="cs-form_field" placeholder='Development' />
+                    <label className="cs-primary_color">Select Service(s)*</label>
+                    <div>
+                      <select name="cars" id="cars" className="cs-form_field" defaultValue="">
+                        <option value="" disabled className="text-gray-500">Select Service</option>
+                        <option value="App Development" className="text-black">App Development</option>
+                        <option value="Backend Development" className="text-black">Backend Development</option>
+                        <option value="App Maintenance" className="text-black">App Maintenance</option>
+                        <option value="Web Development" className="text-black">Web Development</option>
+                      </select>
+                    </div>
 
                   </Div>
                   <Div className="col-sm-12">
-                    <label className="cs-primary_color">Message*</label>
+                    <label className="cs-primary_color">Project Details*</label>
                     <textarea
                       cols="20"
                       rows="5"
                       className="cs-form_field"
-                      placeholder='Start a conversation'
+                    // placeholder='Start a conversation'
                     ></textarea>
                     <Spacing lg="25" md="25" />
                   </Div>
@@ -213,12 +226,12 @@ export default function Header({ variant }) {
           <Div className="cs-side_header_box">
             <Newsletter
               title="Subscribe"
-              subtitle="At vero eos et accusamus et iusto odio as part dignissimos ducimus qui blandit."
+              subtitle="Join our community and let’s create together."
               placeholder="example@gmail.com"
             />
           </Div>
           <Div className="cs-side_header_box">
-            <SocialWidget />
+            {/* <SocialWidget /> */}
           </Div>
         </Div>
       </Div>

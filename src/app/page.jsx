@@ -22,6 +22,7 @@ import Marquee from 'react-fast-marquee';
 import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
 import { useIsMobile } from '@/utils/useIsMobile';
+import { useSideHeader } from '@/utils/SideHeaderToggle';
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 // Hero Social Links
 const heroSocialLinks = [
@@ -84,29 +85,33 @@ const portfolioData = [
 export default function Home() {
   const isMobile = useIsMobile();
   const lineRef = useRef()
-
+  const { addTitle } = useSideHeader()
   useEffect(() => {
+    addTitle("Home")
+    let md = gsap.matchMedia();
     const line = lineRef.current;
 
     const length = line.getTotalLength();
+    md.add("(min-width:800px)", () => {
+      gsap.set(line, {
+        strokeDasharray: length
+      });
 
-    gsap.set(line, {
-      strokeDasharray: length
-    });
+      gsap.fromTo(line,
+        {
+          strokeDashoffset: length
+        }, {
+        strokeDashoffset: 0,
+        ease: "none",
+        scrollTrigger: {
+          trigger: ".line",
+          start: "top 60%",
+          end: "bottom bottom",
+          scrub: 1,
+        },
+      },);
+    })
 
-    gsap.fromTo(line,
-      {
-        strokeDashoffset: length
-      }, {
-      strokeDashoffset: 0,
-      ease: "none",
-      scrollTrigger: {
-        trigger: ".line",
-        start: "top 60%",
-        end: "bottom bottom",
-        scrub: 4,
-      },
-    },);
 
   }, []);
 
@@ -184,20 +189,20 @@ export default function Home() {
         },
       });
 
-      gsap.from('.cta', {
-        y: isMobile ? 50 : 200,
-        opacity: 0,
-        duration: 1.6,
-        delay: 1,
-        scrollTrigger: {
-          trigger: '.cta',
-          start: isMobile ? 'top 90%' : 'top 90%',
-          end: isMobile ? 'top 60%' : 'top 40%',
-          scrub: 2,
-          onEnter: () => gsap.to('.cta', { autoAlpha: 1 }),
-          onLeaveBack: () => gsap.to('.cta', { autoAlpha: 0 }),
-        },
-      });
+      // gsap.from('.cta', {
+      //   y: isMobile ? 50 : 200,
+      //   opacity: 0.8,
+      //   duration: 1.6,
+      //   delay: 1,
+      //   scrollTrigger: {
+      //     trigger: '.cta',
+      //     start: isMobile ? 'top 90%' : 'top 90%',
+      //     end: isMobile ? 'top 60%' : 'top 40%',
+      //     scrub: 2,
+      //     onEnter: () => gsap.to('.cta', { autoAlpha: 1 }),
+      //     onLeaveBack: () => gsap.to('.cta', { autoAlpha: 0 }),
+      //   },
+      // });
     });
   });
 
@@ -228,8 +233,24 @@ export default function Home() {
         />
       </div>
       {/* End FunFact Section */}
-      <svg className='absolute line -mt-40 -ml-12' width="2224" height="4404" viewBox="0 0 2224 4404" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M43.2501 3.5875C173.97 102.975 483.808 305.321 677.406 319.598C919.404 337.444 1164.61 132.12 1322.64 218.62C1480.67 305.121 1449.53 439.963 1238.56 711.295C1027.6 982.626 989.957 1128.95 1040.11 1246.83C1090.26 1364.72 1309.66 1360.76 1668.76 1056.8C2027.86 752.848 2206.75 1165.9 2219.61 1478.13C2232.46 1790.36 1904.04 1934.17 1556.9 2070.58C1209.75 2206.98 535.585 2163.87 392.464 2474.78C249.344 2785.69 453.714 2979.3 671.109 3064.73C888.505 3150.16 1265.99 2834.51 1512.47 2900.82C1758.96 2967.14 1850 3262.46 1585.91 3680.4C1321.81 4098.33 776.965 3780.71 487.183 4005.43C255.357 4185.21 67.9426 4344.04 3.21375 4400.98" stroke="url(#paint0_linear_24_592)" stroke-width="7" ref={lineRef} />
+      <svg className='absolute line -mt-56 -ml-12' width="2183" height="4021" viewBox="0 0 2183 4021" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M2.25 3.73413C132.97 103.122 442.808 305.467 636.406 319.744C878.404 337.591 1123.61 132.267 1281.64 218.767C1439.67 305.268 1408.53 440.11 1197.56 711.442C986.599 982.773 948.957 1129.09 999.107 1246.98C1049.26 1364.86 1268.66 1360.91 1627.76 1056.95C1986.86 752.995 2165.75 1166.04 2178.61 1478.27C2191.46 1790.5 1863.04 1934.32 1515.9 2070.72C1168.75 2207.13 494.585 2164.02 351.464 2474.93C208.344 2785.84 412.714 2979.44 630.109 3064.88C847.505 3150.31 1134.51 2970.19 1381 3036.5C1627.49 3102.81 1631.39 3520.84 1544.91 3680.54C1448 3859.5 1739 3864 1739 4020.5" stroke="url(#paint0_linear_29_11)" stroke-width="15" ref={lineRef} />
+        <defs>
+          <linearGradient id="paint0_linear_29_11" x1="127.654" y1="199.797" x2="1928.96" y2="4053.58" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#090909" />
+            <stop offset="0.115" stop-color="#D01010" />
+            <stop offset="0.22" stop-color="#670000" />
+            <stop offset="0.325" stop-color="#FF4A17" />
+            <stop offset="0.445" stop-color="#A90E0A" />
+            <stop offset="0.57" stop-color="white" />
+            <stop offset="0.7" stop-color="#E95334" />
+            <stop offset="0.82" stop-color="#910000" />
+            <stop offset="1" stop-color="white" />
+          </linearGradient>
+        </defs>
+      </svg>
+      {/* <svg className='absolute line -mt-52 -ml-12' width="2224" height="4404" viewBox="0 0 2224 4404" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M43.2501 3.5875C173.97 102.975 483.808 305.321 677.406 319.598C919.404 337.444 1164.61 132.12 1322.64 218.62C1480.67 305.121 1449.53 439.963 1238.56 711.295C1027.6 982.626 989.957 1128.95 1040.11 1246.83C1090.26 1364.72 1309.66 1360.76 1668.76 1056.8C2027.86 752.848 2206.75 1165.9 2219.61 1478.13C2232.46 1790.36 1904.04 1934.17 1556.9 2070.58C1209.75 2206.98 535.585 2163.87 392.464 2474.78C249.344 2785.69 453.714 2979.3 671.109 3064.73C888.505 3150.16 1265.99 2834.51 1512.47 2900.82C1758.96 2967.14 1850 3262.46 1585.91 3680.4C1321.81 4098.33 776.965 3780.71 487.183 4005.43C255.357 4185.21 67.9426 4344.04 3.21375 4400.98" stroke="url(#paint0_linear_24_592)" stroke-width="16" ref={lineRef} />
         <defs>
           <linearGradient id="paint0_linear_24_592" x1="168.654" y1="199.65" x2="1969.96" y2="4053.43" gradientUnits="userSpaceOnUse">
             <stop stop-color="#090909" />
@@ -244,7 +265,7 @@ export default function Home() {
             <stop offset="1" stop-color="#260708" />
           </linearGradient>
         </defs>
-      </svg>
+      </svg> */}
       {/* Start Service Section */}
       <Spacing lg="120" md="80" />
       <div id="service" className="services-section-1" >
@@ -302,7 +323,6 @@ export default function Home() {
                   <Spacing lg="0" md="30" />
                 </Div>
                 <Div className="col-lg-3 col-sm-6 cs-hidden_mobile"></Div>
-
                 <Div className="col-lg-3 col-sm-6 cs-hidden_mobile"></Div>
               </Div>
             </Div>
@@ -324,11 +344,14 @@ export default function Home() {
         </div>
         <div className='second xs:w-[100%] relative overflow-hidden'>
           <Marquee className='overflow-hidden'>
-            <Image src="/images/client-logos/PNG-1.png" width={140} height={100} alt="Partner Logo" style={{ marginLeft: "50px" }} />
-            <Image src="/images/client-logos/PNG-2.png" width={140} height={100} alt="Partner Logo" style={{ marginLeft: "50px" }} />
-            <Image src="/images/client-logos/PNG-3.png" width={140} height={100} alt="Partner Logo" style={{ marginLeft: "50px" }} />
-            <Image src="/images/client-logos/PNG-4.png" width={140} height={100} alt="Partner Logo" style={{ marginLeft: "50px" }} />
-            <Image src="/images/client-logos/PNG-5.png" width={140} height={100} alt="Partner Logo" style={{ marginLeft: "50px" }} />
+            <Image src="/images/client-logos/icone-1.png" width={100} height={100} alt="Partner Logo" style={{ marginLeft: "50px" }} />
+            <Image src="/images/client-logos/icone-2.png" width={100} height={100} alt="Partner Logo" style={{ marginLeft: "50px" }} />
+            <Image src="/images/client-logos/icone-3.png" width={100} height={100} alt="Partner Logo" style={{ marginLeft: "50px" }} />
+            <Image src="/images/client-logos/icone-4.png" width={100} height={100} alt="Partner Logo" style={{ marginLeft: "50px" }} />
+            <Image src="/images/client-logos/icone-5.png" width={100} height={100} alt="Partner Logo" style={{ marginLeft: "50px" }} />
+            <Image src="/images/client-logos/icone-6.png" width={100} height={100} alt="Partner Logo" style={{ marginLeft: "50px" }} />
+            <Image src="/images/client-logos/icone-7.png" width={100} height={100} alt="Partner Logo" style={{ marginLeft: "50px" }} />
+            <Image src="/images/client-logos/icone-8.png" width={100} height={100} alt="Partner Logo" style={{ marginLeft: "50px" }} />
           </Marquee>
         </div>
       </div>
@@ -415,8 +438,9 @@ export default function Home() {
       {/* Start Blog Section */}
       <Spacing lg="120" md="60" />
       <Div className="cs-shape_wrap_4 blog">
-        <Div className="cs-shape_4" style={{ background: 'radial-gradient(circle, rgba(255, 74, 23, 0.8), rgba(153, 44, 14, 0.8))' }}></Div>
-        <Div className="cs-shape_4" style={{ background: 'radial-gradient(circle, rgba(255, 74, 23, 0.8), rgba(153, 44, 14, 0.8))' }}></Div>
+        {/* <Div className="cs-shape_4" style={{ border: '1px solid radial-gradient(circle, rgba(255, 74, 23, 0.8), rgba(153, 44, 14, 0.8))' }}></Div> */}
+        <Div className="cs-shape_4" style={{ border: '3px solid #ff4a17', borderRadius: '80px' }}></Div>
+        <Div className="cs-shape_4" style={{ border: '3px solid #ff4a17', borderRadius: '810px' }}></Div>
 
         <Div className="container">
           <Div className="row">

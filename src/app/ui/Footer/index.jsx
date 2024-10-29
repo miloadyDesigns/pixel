@@ -8,7 +8,7 @@ import TextWidget from '../Widget/TextWidget';
 
 const copyrightLinks = [
   {
-    title: 'Terms of Use',
+    title: 'Terms & Conditions',
     href: '/',
   },
   {
@@ -19,21 +19,29 @@ const copyrightLinks = [
 
 const serviceMenu = [
   {
-    title: 'UI/UX design',
+    title: 'Behind Creativity',
     href: '/service/service-details',
   },
   {
-    title: 'WP development',
+    title: 'Creatvity Showcase',
     href: '/service/service-details',
   },
   {
-    title: 'Digital marketing',
+    title: 'App Evalutuion',
     href: '/service/service-details',
   },
   {
-    title: 'React development',
+    title: 'Connect',
     href: '/service/service-details',
   },
+  // {
+  //   title: 'Privacy Policy',
+  //   href: '/service/service-details',
+  // },
+  // {
+  //   title: 'Terms & Conditions',
+  //   href: '/service/service-details',
+  // },
 ];
 
 const date = new Date().getFullYear();
@@ -47,11 +55,11 @@ export default function Footer({ copyrightText, logoSrc, logoAlt, text }) {
             <Div className="col-lg-3 col-sm-6">
               <Div className="cs-footer_item">
                 <TextWidget
-                  logoSrc="/images/footer_logo.svg"
+                  logoSrc="/images/pixelLogo.png"
                   logoAlt="Logo"
-                  text="Welcome to arino sed ut perspiciae omunde omnis iste natus error sitort voluptatem accusantium."
+                  text="At Pixel Brain Designs, we’re committed to crafting digital experiences that inspire and connect. Let’s bring your ideas to life."
                 />
-                <SocialWidget />
+                {/* <SocialWidget /> */}
               </Div>
             </Div>
             <Div className="col-lg-3 col-sm-6">
@@ -67,9 +75,9 @@ export default function Footer({ copyrightText, logoSrc, logoAlt, text }) {
             <Div className="col-lg-3 col-sm-6">
               <Div className="cs-footer_item">
                 <Newsletter
-                  title="Subscribe"
-                  subtitle="At vero eos et accusamus et iusto odio as part dignissimos ducimus qui blandit."
-                  placeholder="example@gmail.com"
+                  title="Stay Inspired!"
+                  subtitle="Join our community and let’s create together."
+                  placeholder="Enter email"
                 />
               </Div>
             </Div>
@@ -80,7 +88,7 @@ export default function Footer({ copyrightText, logoSrc, logoAlt, text }) {
         <Div className="cs-bottom_footer">
           <Div className="cs-bottom_footer_left">
             <Div className="cs-copyright">
-              Copyright © {`${date}`} Laralink.
+              Copyright © {`${date}`} PixelBrainDesign.
             </Div>
           </Div>
           <Div className="cs-bottom_footer_right">

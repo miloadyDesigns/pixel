@@ -5,8 +5,9 @@ import PageHeading from "@/app/ui/PageHeading";
 import Portfolio from "@/app/ui/Portfolio";
 import SectionHeading from "@/app/ui/SectionHeading";
 import Spacing from "@/app/ui/Spacing";
+import { useSideHeader } from "@/utils/SideHeaderToggle";
 import { Icon } from "@iconify/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const portfolioData = [
   {
@@ -102,7 +103,10 @@ const categoryMenu = [
 export default function PortfolioPage() {
   const [active, setActive] = useState('all');
   const [itemShow, setItemShow] = useState(7);
-
+  const { addTitle } = useSideHeader()
+  useEffect(() => {
+    addTitle("Creative Showcase")
+  })
   return (
     <>
       <PageHeading
@@ -176,7 +180,7 @@ export default function PortfolioPage() {
       </Div>
       <Spacing lg="145" md="80" />
       <Cta
-        title="agency@arino.com"
+        title=" collaborate@pixelbraindesigns.com"
         bgSrc="/images/cta_bg_2.jpeg"
         variant="rounded-0"
       />
