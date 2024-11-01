@@ -1,27 +1,28 @@
 import nodemailer from "nodemailer"
-
-
 export async function POST(req) {
-    const { name, email, service, phoneNumber, message } = await req.json()
+    const { name, email, service, phoneNumber, message } = await req.json();
 
     const transporter = nodemailer.createTransport({
-        host: 'mail.yourdomain.com',
-        port: 587, // Usually 587 for TLS
+        host: 'mail.pixelbraindesigns.com',
+        port: 587,
         secure: false,
+        tls: {
+            rejectUnauthorized: false // Disable TLS verification
+        },
         auth: {
-            user: "abc@gmail.com",
-            pass: "pass12345"
+            user: "info@pixelbraindesigns.com",
+            pass: "pixelBrainDesigns789_!"
         }
-    })
-    const mailOptions = {
-        from: "abc@gmail.com",
-        to: "abc@gmail.com",
-        cc: "hashmihamza846@gmail.com",
-        subject: "Inquire from contact form pixel brain",
-        text: `Full Name: ${name} <br/> Phone No: ${phoneNumber} <br/> Selected Service: ${service} <br/> Message: ${message}`,
-        replyTo: email,
+    });
 
-    }
+    const mailOptions = {
+        from: "info@pixelbraindesigns.com",
+        to: "info@pixelbraindesigns.com",
+        subject: "Inquire from contact form PixelBrainDesign",
+        html: `Full Name: ${name} <br/> Phone No: ${phoneNumber} <br/> Selected Service: ${service} <br/> Email:${email} <br/> Message: ${message}`,
+        replyTo: email,
+    };
+
     try {
         await transporter.sendMail(mailOptions);
         return new Response(JSON.stringify({ message: 'Message sent successfully!' }), { status: 200 });

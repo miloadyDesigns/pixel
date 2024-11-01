@@ -203,51 +203,7 @@ const page = () => {
                 <ProcessSlider />
             </Div>
 
-            {/* End Fun Fact Section */}
 
-            {/* Start Why Choose Section */}
-            {/* <Spacing lg="100" md="80" /> */}
-            {/* <Div className="container">
-                <Div className="row">
-                    <Div className="col-xl-5 col-lg-6">
-                        <Div className="cs-image_layer cs-style1">
-                            <Div className="cs-image_layer_in">
-                                <Image
-                                    src={aboutImg4}
-                                    alt="About"
-                                    className="w-100 cs-radius_15"
-                                />
-                            </Div>
-                        </Div>
-                        <Spacing lg="0" md="40" />
-                    </Div>
-                    <Div className="col-xl-5 offset-xl-1 col-lg-6">
-                        <SectionHeading
-                            title="Join Us on This Journey"
-                            subtitle="Why Choose Us"
-                        >
-                            <Spacing lg="30" md="20" />
-                            <p className="cs-m0">
-                                As we continue to grow and evolve, we invite you to join us on this exciting journey. Let’s create something amazing together and turn your ideas into reality. At Pixel Brain Designs, your vision is our inspiration, and together, we can push the boundaries of what’s possible.
-                            </p>
-                            <Spacing lg="15" md="15" />
-                            <p className="cs-m0">
-                                Every project we undertake tells a unique story. From the initial brainstorming session to the final launch, we immerse ourselves in our clients’ visions, ensuring that each solution reflects their brand’s essence. Our diverse team of designers, developers, and strategists brings a wealth of experience and creativity to the table, enabling us to tackle challenges with fresh perspectives and innovative ideas.
-                            </p>
-                            <Spacing lg="30" md="30" />
-                            <Div className="cs-separator cs-accent_bg"></Div>
-                            <Spacing lg="25" md="0" />
-                        </SectionHeading>
-                    </Div>
-                </Div>
-            </Div> */}
-            {/* End Why Choose Section */}
-
-            {/* Start Team Section */}
-            {/*  */}
-            {/* End Team Section */}
-
-            {/* Start CTA Section */}
             <Spacing lg="150" md="80" />
             <Div className="container">
                 <Cta
@@ -255,6 +211,7 @@ const page = () => {
                     btnText="Apply For Meeting"
                     btnLink="/contact"
                     bgSrc="/images/cta_bg.jpeg"
+                    line={false}
                 />
             </Div>
             <Spacing lg="150" md="80" />

@@ -114,6 +114,7 @@ export default function BlogDetailsPage() {
           btnText='Apply For Meeting' 
           btnLink='/contact' 
           bgSrc='/images/cta_bg.jpeg'
+          line={false}
         />
       </Div>
       {/* End CTA Section */}

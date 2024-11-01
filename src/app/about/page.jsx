@@ -195,6 +195,7 @@ export default function AboutPage() {
           btnText="Apply For Meeting"
           btnLink="/contact"
           bgSrc="/images/cta_bg.jpeg"
+          line={false}
         />
       </Div>
       <Spacing lg="150" md="80" />

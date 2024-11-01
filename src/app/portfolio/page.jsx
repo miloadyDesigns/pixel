@@ -180,7 +180,7 @@ export default function PortfolioPage() {
       </Div>
       <Spacing lg="145" md="80" />
       <Cta
-        title=" collaborate@pixelbraindesigns.com"
+        title="collaborate@pixelbraindesigns.com"
         bgSrc="/images/cta_bg_2.jpeg"
         variant="rounded-0"
       />

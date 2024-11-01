@@ -188,7 +188,20 @@ export default function Home() {
           onLeaveBack: () => gsap.to('.blog', { autoAlpha: 0 }),
         },
       });
+      gsap.to(".shape_4:first-child", {
+        rotation: 360,
+        duration: 5,
+        repeat: -1, // Infinite loop
+        ease: "linear",
+      });
 
+      // GSAP animation for the second image
+      gsap.to(".shape_4:last-child", {
+        rotation: 360,
+        duration: 7,
+        repeat: -1, // Infinite loop
+        ease: "linear",
+      });
       // gsap.from('.cta', {
       //   y: isMobile ? 50 : 200,
       //   opacity: 0.8,
@@ -439,8 +452,14 @@ export default function Home() {
       <Spacing lg="120" md="60" />
       <Div className="cs-shape_wrap_4 blog">
         {/* <Div className="cs-shape_4" style={{ border: '1px solid radial-gradient(circle, rgba(255, 74, 23, 0.8), rgba(153, 44, 14, 0.8))' }}></Div> */}
-        <Div className="cs-shape_4" style={{ border: '3px solid #ff4a17', borderRadius: '80px' }}></Div>
-        <Div className="cs-shape_4" style={{ border: '3px solid #ff4a17', borderRadius: '810px' }}></Div>
+        <div className="cs-shape_4" style={{ backgroundColor: "transparent" }}>
+          <Image className='shape_4' src={"/images/icons/slider-dots.webp"} width={100} height={100} />
+        </div>
+        <div className="cs-shape_4" style={{ backgroundColor: "transparent" }}>
+          <Image className='shape_4' src={"/images/icons/slider-dots.webp"} width={200} height={200} />
+        </div>
+        {/* <Div className="cs-shape_4" style={{ border: '3px solid #ff4a17', borderRadius: '80px' }}></Div>
+        <Div className="cs-shape_4" style={{ border: '3px solid #ff4a17', borderRadius: '810px' }}></Div> */}
 
         <Div className="container">
           <Div className="row">
@@ -486,6 +505,7 @@ export default function Home() {
           btnText="Book Your Meeting"
           btnLink="/contact"
           bgSrc="/images/cta_bg.jpeg"
+          line={true}
         />
       </Div>
       <Spacing lg="125" md="70" />

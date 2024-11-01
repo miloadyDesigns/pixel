@@ -29,11 +29,7 @@ export default function ContactPage() {
   useEffect(() => {
     addTitle("Connect")
   })
-  const handleServiceChange = (event) => {
-    const options = event.target.options;
-    const value = Array.from(options).filter(option => option.selected).map(option => option.value);
-    setSelectedServices(value);
-  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus('Sending...');
@@ -48,7 +44,7 @@ export default function ContactPage() {
         email,
         phoneNumber,
         message,
-        service: selectedServices, // Send the selected service
+        service: selectedServices,
       }),
     });
 
@@ -58,15 +54,11 @@ export default function ContactPage() {
       setEmail('');
       setPhoneNumber('');
       setMessage('');
-      setSelectedService('');
+      setSelectedServices('');
     } else {
       setStatus('Error sending message.');
     }
-    // console.log(`name: ${fullName},
-    //   ${email},
-    //   ${phoneNumber},
-    //   ${message},
-    //   service: ${selectedServices}`);
+
 
   };
 
@@ -106,13 +98,13 @@ export default function ContactPage() {
               <Div className="col-sm-6">
                 <label className="cs-primary_color">Select Service(s)*</label>
                 <div>
-                  <select name="cars" id="cars" className="cs-form_field text-white" required value={selectedServices}
-                    onChange={handleServiceChange}>
-                    <option value="Select Service" disabled className="text-gray-500" color="black">Select Service</option>
-                    <option value="App development" className="text-black" color="black">App development</option>
-                    <option value="Backend Development" className="text-black" color="black">Backend Development</option>
-                    <option value="App Maintanance" className="text-black" color="black">App Maintanance</option>
-                    <option value="Web Development" className="text-black" color="black">Web Development</option>
+                  <select name="services" className="cs-form_field text-white" required value={selectedServices}
+                    onChange={(e) => setSelectedServices(e.target.value)}>
+                    <option value="" disabled className="text-gray-500">Select Service</option>
+                    <option value="App Development" className="text-black">App Development</option>
+                    <option value="Backend Development" className="text-black">Backend Development</option>
+                    <option value="App Maintenance" className="text-black">App Maintenance</option>
+                    <option value="Web Development" className="text-black">Web Development</option>
                   </select>
                 </div>
                 <Spacing lg="20" md="20" />
